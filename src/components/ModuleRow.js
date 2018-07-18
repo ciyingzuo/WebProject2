@@ -14,6 +14,7 @@ class ModuleRow extends React.Component {
     }
 
 
+
     render() {
         return (
             <tr>

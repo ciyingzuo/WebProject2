@@ -15,6 +15,12 @@ class ModuleList extends React.Component {
         };
     }
 
+    componentDidMount() {
+        this.moduleServices.findAllModule(this.props.courseId)
+            .then(module => {
+                this.setState({Module: module})
+            });
+    }
 
     render() {
         return (
