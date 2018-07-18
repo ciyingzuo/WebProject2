@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import CourseService from "../services/CourseService";
+import ModuleList from "../components/ModuleList";
 
 class CourseEditor extends React.Component {
     constructor(props) {
@@ -9,7 +10,7 @@ class CourseEditor extends React.Component {
         this.courseService = CourseService.instance;
         this.state = {
             course: {
-                modules: [{lessons: [{topics: [{}]}]}]
+                modules: [{lessons: []}]
             }
         }
     }
@@ -22,23 +23,9 @@ class CourseEditor extends React.Component {
             });
     }
 
-
-
-
-
-
-
     render() {
         return (
             <tr>
-                <td>
-                    <Router>
-                        <div className="container-fluid">
-                            <Link to={'/'+this.props.course.title}>{this.props.course.title}</Link>
-                            <Route path={'/'+this.props.course.title}/>
-                        </div>
-                    </Router>
-                </td>
                 <td>
                     <button className="btn btn-danger"
                             onClick={() =>
@@ -46,6 +33,12 @@ class CourseEditor extends React.Component {
                             }>
                         Delete
                     </button>
+
+                    <tbody>
+                        <ModuleList course={this.state.course}/>
+                    </tbody>
+
+
                 </td>
             </tr>
         )
