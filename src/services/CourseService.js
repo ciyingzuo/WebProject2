@@ -5,7 +5,7 @@ class CourseService {
     COURSE_API_URL = 'http://localhost:8080/api/course';
 
     deleteCourse(courseId) {
-        return fetch(this.COURSE_API_URL + '/' + courseId, {
+        return fetch(this.COURSE_API_URL + '/delete/' + courseId, {
             method: 'delete'
         })
             .then(function (response) {
