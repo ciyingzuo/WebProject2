@@ -338,7 +338,7 @@ class App extends React.Component {
 
                     <Route path='/pageParam/:something' component={PageParam}/>
 
-                    <Route path='/es6' component={ES6}/>
+                    <Route path='/es6' component={LessonTabs}/>
 
 
 
