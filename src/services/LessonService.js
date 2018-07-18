@@ -13,6 +13,13 @@ class LessonService {
             });
     }
 
+    findLessonById(lessonId) {
+        return fetch(this.Lesson_API_URL + '/' + lessonId)
+            .then(function(response){
+                return response.json();
+            });
+    }
+
     createLesson(lesson) {
         return fetch(this.Lesson_API_URL, {
             method: 'post',

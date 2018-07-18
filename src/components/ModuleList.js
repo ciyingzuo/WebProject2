@@ -11,7 +11,6 @@ class ModuleList extends React.Component {
         super(props);
         this.moduleServices = ModuleServices.instance;
         this.state = {
-            courseId: {},
             Module: []
         };
     }
@@ -28,7 +27,8 @@ class ModuleList extends React.Component {
             <tbody>
             {this.state.Module.map((module, index) =>
                 <ModuleRow key={index}
-                           Title={module.title}/>)}
+                           Title={module.title}
+                           moduleId={module.id}/>)}
             </tbody>
         )
     }

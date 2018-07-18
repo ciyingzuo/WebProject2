@@ -1,25 +1,25 @@
 import React from 'react'
+import LessonService from "../services/LessonService";
 
 
 class LessonTabs extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.lessonService = LessonService.instance;
+        this.state = {
+            Title: {}
+        }
+    }
+
+    componentDidMount() {
+                this.setState({Title: this.props.title})
+    }
+
     render() {
         return (
             <div>
-                <h3>Lesson Tabs</h3>
-                <ul className="nav nav-tabs">
-                    <li className="nav-item">
-                        <a className="nav-link active" href="#">Active</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="#">Link</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="#">Link</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link disabled" href="#">Disabled</a>
-                    </li>
-                </ul>
+                {this.state.title}
             </div>
         )
     }
