@@ -11,6 +11,7 @@ class ModuleList extends React.Component {
         super(props);
         this.moduleServices = ModuleServices.instance;
         this.state = {
+            courseId: {},
             Module: []
         };
     }

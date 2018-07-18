@@ -34,7 +34,6 @@ class ModuleServices {
             });
     }
 
-
     constructor(singletonToken) {
         if (_singleton !== singletonToken)
             throw new Error('Cannot instantiate directly.');

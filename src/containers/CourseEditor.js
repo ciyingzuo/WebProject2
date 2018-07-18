@@ -35,7 +35,7 @@ class CourseEditor extends React.Component {
                     </button>
 
                     <tbody>
-                        <ModuleList course={this.state.course}/>
+                        <ModuleList courseId={this.props.course.id}/>
                     </tbody>
 
 
