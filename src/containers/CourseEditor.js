@@ -10,42 +10,33 @@ class CourseEditor extends React.Component {
         this.courseService = CourseService.instance;
         this.state = {
             course: {
-                modules: [{lessons: []}]
+                module: [{title: '', lesson: [{title: ''}]}]
             }
         }
     }
-
 
     componentDidMount() {
         this.courseService.findCourseById(this.props.match.params.courseId)
             .then(course => {
                 this.setState({course: course})
+                this.setState({module: course.modules})
             });
     }
 
     render() {
         return (
-            <tr>
-                <td>
-                    <button className="btn btn-danger"
-                            onClick={() =>
-                                this.props.deleteCourse(this.props.course.id)
-                            }>
-                        Delete
-                    </button>
-
-                    <tbody>
-                        <ModuleList courseId={this.props.course.id}/>
-                    </tbody>
-
-
-                </td>
-            </tr>
+            <div>
+                <h3>{this.state.course.title}</h3>
+                <button className="btn btn-danger"
+                        onClick={() =>
+                            this.props.deleteCourse(this.props.match.params.courseId)
+                        }>
+                    Delete
+                </button>
+                <ModuleList course={this.state.course}/>
+            </div>
         )
     }
-
-
-
 
 
     // render() {
@@ -56,7 +47,6 @@ class CourseEditor extends React.Component {
     //         </div>
     //     )
     // }
-
 
 
 }

@@ -14,13 +14,12 @@ import '../node_modules/bootstrap/dist/css/bootstrap.css';
 
 import '../node_modules/font-awesome/css/font-awesome.min.css';
 
-import LessonTabs from './components/LessonTabs'
-
-import TopicPills from './components/TopicPills'
 
 import CourseList from './containers/CourseList'
 
-import ES6 from './containers/es6/es6'
+import CourseEditor from './containers/CourseEditor'
+
+
 
 
 
@@ -317,31 +316,9 @@ class App extends React.Component {
             <Router>
 
                 <div className="container-fluid">
-
                     <Link to="/whiteboard">WhiteBoard</Link> |
-
-                    <Link to="/hello">Hello</Link> |
-
-                    <Link to="/page1">Page 1</Link> |
-
-                    <Link to="/page2">Page 2</Link> |
-
-                    <Link to="/es6">ES6</Link>
-
                     <Route path='/whiteboard' component={WhiteBoard}/>
-
-                    <Route path='/page1' component={Page1}/>
-
-                    <Route path='/page2' component={Page2}/>
-
-                    <Route path='/hello' component={HelloWorld}/>
-
-                    <Route path='/pageParam/:something' component={PageParam}/>
-
-                    <Route path='/es6' component={LessonTabs}/>
-
-
-
+                    <Route path='/courseEditor/:courseId' component={CourseEditor}/>
                 </div>
 
             </Router>

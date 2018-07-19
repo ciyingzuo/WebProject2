@@ -65,12 +65,10 @@ class CourseList extends React.Component {
                         </th>
                     </tr>
                     </thead>
-                    <tbody>
                     {this.state.courses.map((course, index) =>
                         <CourseRow key={index}
                                    deleteCourse={this.deleteCourse}
                                    course={course}/>)}
-                    </tbody>
                 </table>
             </div>
         )

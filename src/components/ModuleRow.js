@@ -8,29 +8,26 @@ class ModuleRow extends React.Component {
 
     constructor(props) {
         super(props);
-        this.lessonService = LessonService.instance;
         this.state = {
-            Title: {},
-            Lesson: []
-
         }
     }
 
     componentDidMount() {
-        this.lessonService.findAllLesson(this.props.ModuleId)
-            .then(lesson => {
-                this.setState({Lesson: lesson})
-            });
+        // this.lessonService.findAllLesson(this.props.ModuleId)
+        //     .then(lesson => {
+        //         this.setState({Lesson: this.props.Lesson})
+            // });
     }
 
     render() {
         return (
-            <tbody>
-            {this.state.Lesson.map((lesson, index) =>
-                <LessonTabs key={index}
-                            Title={lesson.title}
-                            LessonId={lesson.id}/>)}
-            </tbody>
+            <div>
+            {this.props.Lesson.title}
+            {/*{this.state.Lesson.map((lesson, index) =>*/}
+                {/*<LessonTabs key={index}*/}
+                            {/*Title={lesson.title}*/}
+                            {/*LessonId={lesson.id}/>)}*/}
+            </div>
         )
     }
 

@@ -10,26 +10,30 @@ class ModuleList extends React.Component {
     constructor(props) {
         super(props);
         this.moduleServices = ModuleServices.instance;
-        this.state = {
-            Module: []
-        };
+        this.state = {};
     }
 
     componentDidMount() {
-        this.moduleServices.findAllModule(this.props.courseId)
-            .then(module => {
-                this.setState({Module: module})
-            });
+        // this.moduleServices.findAllModule(this.props.courseId)
+        //     .then(module => {
+        //         this.setState({Module: this.props.Module})
+        // });
     }
 
     render() {
         return (
-            <tbody>
-            {this.state.Module.map((module, index) =>
-                <ModuleRow key={index}
-                           Title={module.title}
-                           moduleId={module.id}/>)}
-            </tbody>
+            <div>
+                <ul>
+                    {this.props.course.module.map((module, index) => {
+                            // return <li key = {index}>{module.title}</li>
+                            return <ModuleRow key={index}
+                                              Title={module.title}
+                                              ModuleId={module.id}
+                                              Lesson={this.props.course.module[index].Lesson}/>
+                        }
+                    )}
+                </ul>
+            </div>
         )
     }
 }
