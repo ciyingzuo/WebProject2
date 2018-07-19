@@ -19,7 +19,7 @@ class LessonTab extends React.Component {
     render() {
         return (
             <div>
-                {this.props.title + "aaa"}
+                {this.props.title}
             </div>
         )
     }

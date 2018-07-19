@@ -10,7 +10,7 @@ class CourseEditor extends React.Component {
         this.courseService = CourseService.instance;
         this.state = {
             course: {
-                module: [{title: '', lesson: [{title: ''}]}]
+                module: [{title: '',id: '', lesson: [{title: '', id: ''}]}]
             }
         }
     }
@@ -26,7 +26,7 @@ class CourseEditor extends React.Component {
     render() {
         return (
             <div>
-                <h3>{this.state.course.title}</h3>
+                <h1>{this.state.course.title}</h1>
                 <button className="btn btn-danger"
                         onClick={() =>
                             this.props.deleteCourse(this.props.match.params.courseId)

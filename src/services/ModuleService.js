@@ -1,17 +1,17 @@
 let _singleton = Symbol();
 
-class ModuleServices {
+class ModuleService {
 
     MODULE_API_URL = 'http://localhost:8080/api/module';
 
-    // deleteCourse(courseId) {
-    //     return fetch(this.COURSE_API_URL + '/delete/' + courseId, {
-    //         method: 'delete'
-    //     })
-    //         .then(function (response) {
-    //             return response;
-    //         });
-    // }
+    deleteModule(moduleId) {
+        return fetch(this.MODULE_API_URL + '/delete/' + moduleId, {
+            method: 'delete'
+        })
+            .then(function (response) {
+                return response;
+            });
+    }
 
     createModule(module) {
         return fetch(this.MODULE_API_URL, {
@@ -41,10 +41,10 @@ class ModuleServices {
 
     static get instance() {
         if (!this[_singleton])
-            this[_singleton] = new ModuleServices(_singleton);
+            this[_singleton] = new ModuleService(_singleton);
         return this[_singleton]
     }
 
 }
 
-export default ModuleServices;
+export default ModuleService;

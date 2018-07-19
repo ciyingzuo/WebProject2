@@ -8,13 +8,10 @@ class CourseRow extends React.Component {
         return (
             <tr>
                 <td>
-                    <Router>
-                        <div className="container-fluid">
-                            <Link to={'/courseEditor/'+this.props.course.id}>{this.props.course.title}</Link>
-                            <Route path={'/courseEditor/:courseId'} component={CourseEditor}/>
-                        </div>
-
-                    </Router>
+                    <div className="container-fluid">
+                        <Link to={'/courseEditor/' + this.props.course.id}>{this.props.course.title}</Link>
+                        <Route path={'/courseEditor/:courseId'} component={CourseEditor}/>
+                    </div>
                 </td>
                 <td>
                     <button className="btn btn-danger"
