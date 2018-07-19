@@ -27,9 +27,9 @@ class ModuleList extends React.Component {
                     {this.props.course.module.map((module, index) => {
                             // return <li key = {index}>{module.title}</li>
                             return <ModuleRow key={index}
-                                              Title={module.title}
-                                              ModuleId={module.id}
-                                              Lesson={this.props.course.module[index].Lesson}/>
+                                              title={module.title}
+                                              moduleId={module.id}
+                                              lesson={this.props.course.module[index].lesson}/>
                         }
                     )}
                 </ul>

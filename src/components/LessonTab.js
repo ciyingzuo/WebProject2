@@ -2,7 +2,7 @@ import React from 'react'
 import LessonService from "../services/LessonService";
 
 
-class LessonTabs extends React.Component {
+class LessonTab extends React.Component {
 
     constructor(props) {
         super(props);
@@ -13,17 +13,17 @@ class LessonTabs extends React.Component {
     }
 
     componentDidMount() {
-                this.setState({Title: this.props.title})
+                // this.setState({Title: this.props.title})
     }
 
     render() {
         return (
             <div>
-                {this.state.title}
+                {this.props.title + "aaa"}
             </div>
         )
     }
 }
 
 
-export default LessonTabs;
+export default LessonTab;

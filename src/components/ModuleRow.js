@@ -2,31 +2,31 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import LessonService from "../services/LessonService";
-import LessonTabs from "./LessonTabs";
+import LessonTab from "./LessonTab";
 
 class ModuleRow extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-        }
+        this.lessonService = LessonService.instance;
+        this.state = {}
     }
 
     componentDidMount() {
         // this.lessonService.findAllLesson(this.props.ModuleId)
         //     .then(lesson => {
-        //         this.setState({Lesson: this.props.Lesson})
-            // });
+        // this.setState({Lesson: this.props.Lesson})
+        // });
     }
 
     render() {
         return (
             <div>
-            {this.props.Lesson.title}
-            {/*{this.state.Lesson.map((lesson, index) =>*/}
-                {/*<LessonTabs key={index}*/}
-                            {/*Title={lesson.title}*/}
-                            {/*LessonId={lesson.id}/>)}*/}
+                {this.props.title}
+                {this.props.lesson.map((lesson, index) =>{
+                    return <LessonTab key={index}
+                                title={lesson.title}
+                                lessonId={lesson.id}/>})}
             </div>
         )
     }
