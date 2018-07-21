@@ -23,16 +23,18 @@ class ModuleList extends React.Component {
     render() {
         return (
             <div>
-                <ul>
-                    {this.props.course.module.map((module, index) => {
-                            // return <li key = {index}>{module.title}</li>
-                            return <ModuleRow key={index}
-                                              title={module.title}
-                                              moduleId={module.id}
-                                              lesson={this.props.course.module[index].lesson}/>
-                        }
-                    )}
-                </ul>
+                <td>
+                {this.props.course.module.map((module, index) => {
+                        return <ModuleRow key={index}
+                                          title={module.title}
+                                          moduleId={module.id}
+                                          lesson={this.props.course.module[index].lesson}/>
+                    }
+                )}
+                </td>
+                <td>
+
+                </td>
             </div>
         )
     }

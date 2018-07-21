@@ -2,10 +2,10 @@ let _singleton = Symbol();
 
 class CourseService {
 
-    COURSE_API_URL = 'http://localhost:8080/api/course';
+    COURSE_API_URL = 'http://localhost:8080/api/course/';
 
     deleteCourse(courseId) {
-        return fetch(this.COURSE_API_URL + '/delete/' + courseId, {
+        return fetch(this.COURSE_API_URL + 'delete/' + courseId, {
             method: 'delete'
         })
             .then(function (response) {
@@ -13,8 +13,18 @@ class CourseService {
             });
     }
 
+    updateCourse(course){
+        fetch(this.COURSE_API_URL + course.id, {
+            method: 'put',
+            body: JSON.stringify(course),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+    }
+
     findCourseById(courseId) {
-        return fetch(this.COURSE_API_URL + '/' + courseId)
+        return fetch(this.COURSE_API_URL + courseId)
             .then(function(response){
                 return response.json();
             });

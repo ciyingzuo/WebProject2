@@ -9,9 +9,20 @@ class ModuleRow extends React.Component {
 
     constructor(props) {
         super(props);
-        this.moduleService = ModuleService.instance;
-        this.state = {}
+        this.lessonService = LessonService.instance;
+        this.state = {
+            newLesson:{}
+        }
     }
+
+    formChanged = (event) => {
+        this.setState({
+            newLesson: {
+                title: event.target.value,
+                // course: {course: {id: parseInt(this.props.match.params.courseId)}}
+            }
+        })
+    };
 
     componentDidMount() {
         // this.lessonService.findAllLesson(this.props.ModuleId)
@@ -21,27 +32,32 @@ class ModuleRow extends React.Component {
     }
 
     render() {
-        console.log("mid"+this.props.moduleId)
         return (
-            <tr>
-                <td>
-                    <h1>
-                {"Module: " + this.props.title}
-                    </h1>
-                    {this.props.lesson.map((lesson, index) =>{
-                        return <LessonTab key={index}
-                                          title={lesson.title}
-                                          lessonId={lesson.id}/>})}
-                </td>
-                <td>
+            <div>
+                <h3>
+                    {"Module: " + this.props.title}
                     <button className="btn btn-danger"
                             onClick={() =>
                                 this.moduleService.deleteModule(this.props.moduleId)
                             }>
                         Delete
                     </button>
-                </td>
-            </tr>
+                </h3>
+                <input onChange={this.formChanged} type="text" placeholder="Lesson"/>
+                <button className="btn btn-primary"
+                        onClick={() =>
+                            this.lessonService.createLesson(this.state.newModule)
+                        }>
+                    Create Lesson
+                </button>
+                <ul>
+                    {this.props.lesson.map((lesson, index) => {
+                        return <LessonTab key={index}
+                                          title={lesson.title}
+                                          lessonId={lesson.id}/>
+                    })}
+                </ul>
+            </div>
         )
     }
 

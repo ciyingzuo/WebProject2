@@ -13,8 +13,8 @@ class ModuleService {
             });
     }
 
-    createModule(module) {
-        return fetch(this.MODULE_API_URL, {
+    createModule(module, courseId) {
+        return fetch(this.MODULE_API_URL + '/' + courseId + '/module', {
             method: 'post',
             body: JSON.stringify(module),
             headers: {

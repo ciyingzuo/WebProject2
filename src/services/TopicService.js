@@ -1,11 +1,11 @@
 let _singleton = Symbol();
 
-class LessonService {
+class TopicService {
 
-    Lesson_API_URL = 'http://localhost:8080/api/lesson';
+    Topic_API_URL = 'http://localhost:8080/api/topic';
 
-    deleteLesson(lessonId) {
-        return fetch(this.Lesson_API_URL + '/delete/' + lessonId, {
+    deleteTopic(topicId) {
+        return fetch(this.Topic_API_URL + '/delete/' + topicId, {
             method: 'delete'
         })
             .then(function (response) {
@@ -13,10 +13,11 @@ class LessonService {
             });
     }
 
-    createLesson(lesson, moduleId) {
-        return fetch(this.Lesson_API_URL + '/' + moduleId + "/lesson", {
+    createTopic(topic, lessonId) {
+        console.log(lessonId);
+        return fetch(this.Topic_API_URL + '/' + lessonId + "/topic", {
             method: 'post',
-            body: JSON.stringify(lesson),
+            body: JSON.stringify(topic),
             headers: {
                 'content-type': 'application/json'
             }
@@ -26,8 +27,6 @@ class LessonService {
             });
     }
 
-
-
     constructor(singletonToken) {
         if (_singleton !== singletonToken)
             throw new Error('Cannot instantiate directly.');
@@ -35,10 +34,10 @@ class LessonService {
 
     static get instance() {
         if (!this[_singleton])
-            this[_singleton] = new LessonService(_singleton);
+            this[_singleton] = new TopicService(_singleton);
         return this[_singleton]
     }
 
 }
 
-export default LessonService;
+export default TopicService;
