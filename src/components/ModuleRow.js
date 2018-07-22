@@ -1,17 +1,12 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
-import LessonService from "../services/LessonService";
-import LessonTab from "./LessonTab";
-import ModuleService from "../services/ModuleService";
 
 class ModuleRow extends React.Component {
 
     constructor(props) {
         super(props);
-        this.lessonService = LessonService.instance;
         this.state = {
-            newLesson:{}
+            module: this.props.module,
+            newLesson: {}
         }
     }
 
@@ -19,65 +14,52 @@ class ModuleRow extends React.Component {
         this.setState({
             newLesson: {
                 title: event.target.value,
-                // course: {course: {id: parseInt(this.props.match.params.courseId)}}
             }
         })
     };
 
-    componentDidMount() {
-        // this.lessonService.findAllLesson(this.props.ModuleId)
-        //     .then(lesson => {
-        // this.setState({Lesson: this.props.Lesson})
-        // });
-    }
-
     render() {
-        return (
-            <div>
+        if (this.props.currentModuleEdit !== this.state.module.id) {
+            return <div>
                 <h3>
-                    {"Module: " + this.props.title}
-                    <button className="btn btn-danger"
-                            onClick={() =>
-                                this.moduleService.deleteModule(this.props.moduleId)
-                            }>
-                        Delete
-                    </button>
+                    <div>{"Module:" + this.state.module.title}
+                        <span className="pull-right">
+                        <i className="fa fa-plus-square" style={{cursor: 'pointer'}}
+                           onClick={() => {
+                               console.log("edit: " + this.state.module.id);
+                               this.props.setEditingModule(this.state.module.id);
+                           }}/>
+                        <i className="fa fa-trash" style={{cursor: 'pointer'}}
+                           onClick={() => {
+                               this.props.deleteModule(this.state.module.id);
+                           }}/>
+                        </span>
+                    </div>
                 </h3>
                 <input onChange={this.formChanged} type="text" placeholder="Lesson"/>
-                <button className="btn btn-primary"
-                        onClick={() =>
-                            this.lessonService.createLesson(this.state.newModule)
-                        }>
-                    Create Lesson
-                </button>
-                <ul>
-                    {this.props.lesson.map((lesson, index) => {
-                        return <LessonTab key={index}
-                                          title={lesson.title}
-                                          lessonId={lesson.id}/>
-                    })}
-                </ul>
+                <span className="pull-right">
+                <i className="fa fa-plus-square" style={{cursor: 'pointer'}}
+                   onClick={() => {
+                       this.props.createLesson(this.state.newLesson, this.props.module.id)
+                   }}/>
+                        </span>
             </div>
-        )
+        } else {
+            return <div className="container-fluid">
+                <input onChange={(event) => {
+                    this.state.module.title = event.target.value
+                }} className="form-control" placeholder={this.props.module.title}/>
+                <i className="fa fa-plus-square" style={{cursor: 'pointer'}}
+                   onClick={() => {
+                       this.props.setEditingModule(-1);
+                       this.props.updateModule(this.state.module)
+                   }
+                   }/>
+            </div>
+        }
     }
 
 
-    // render() {
-    //     return (
-    //         <tr>
-    //             <td>
-    //                 <tbody>
-    //                 <div className="container-fluid">
-    //                     {this.props.title}
-    //                     {this.state.Lesson.map((lesson, index) => {
-    //                         this.state.Lesson.props.title
-    //                     })}
-    //                 </div>
-    //                 </tbody>
-    //             </td>
-    //         </tr>
-    //     )
-    // }
 }
 
 export default ModuleRow;

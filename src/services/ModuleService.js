@@ -2,10 +2,10 @@ let _singleton = Symbol();
 
 class ModuleService {
 
-    MODULE_API_URL = 'http://localhost:8080/api/module';
+    MODULE_API_URL = 'http://localhost:8080/api/module/';
 
     deleteModule(moduleId) {
-        return fetch(this.MODULE_API_URL + '/delete/' + moduleId, {
+        return fetch(this.MODULE_API_URL + moduleId, {
             method: 'delete'
         })
             .then(function (response) {
@@ -13,8 +13,18 @@ class ModuleService {
             });
     }
 
+    updateModule(module){
+        return fetch(this.MODULE_API_URL + module.id, {
+            method: 'put',
+            body: JSON.stringify(module),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+    }
+
     createModule(module, courseId) {
-        return fetch(this.MODULE_API_URL + '/' + courseId + '/module', {
+        return fetch(this.MODULE_API_URL +courseId, {
             method: 'post',
             body: JSON.stringify(module),
             headers: {

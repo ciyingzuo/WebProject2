@@ -3,6 +3,9 @@ import CourseService from "../services/CourseService";
 import ModuleService from "../services/ModuleService";
 import LessonService from "../services/LessonService";
 import TopicService from "../services/TopicService";
+import ModuleRow from "../components/ModuleRow";
+import LessonTab from "../components/LessonTab";
+import TopicPills from "../components/TopicPills";
 
 class CourseEditor extends React.Component {
     constructor(props) {
@@ -15,6 +18,8 @@ class CourseEditor extends React.Component {
             currentModule: 0,
             currentLesson: 0,
             currentTopic: 0,
+            currentModuleEdit: 0,
+            currentLessonEdit: 0,
             newModule: {},
             newLesson: {},
             newTopic: {},
@@ -24,13 +29,38 @@ class CourseEditor extends React.Component {
         }
     }
 
-    currentSelect(moduleId, lessonId, topicId) {
+    deleteModule = (moduleId) => {
+        this.moduleService.deleteModule(moduleId).then(() => this.updatePage())
+    };
+
+    updateModule = (module) => {
+        this.moduleService.updateModule(module).then(() => this.updatePage())
+    };
+
+    deleteLesson = (lessonId) => {
+        this.currentSelect(0, 0, 0);
+        this.lessonService.deleteLesson(lessonId).then(() => this.updatePage())
+    };
+
+    updateLesson = (lesson) => {
+        this.lessonService.updateLesson(lesson).then(() => this.updatePage())
+    };
+
+    createLesson = (lesson, moduleId) => {
+        this.lessonService.createLesson(lesson, moduleId).then(() => this.updatePage())
+    };
+
+    deleteTopic = (topicId) => {
+        this.topicService.deleteTopic(topicId).then(() => this.updatePage())
+    };
+
+    currentSelect = (moduleId, lessonId, topicId) => {
         this.setState({currentModule: moduleId});
         this.setState({currentLesson: lessonId});
         this.setState({currentTopic: topicId})
     }
 
-    updatePage() {
+    updatePage = () => {
         this.courseService.findCourseById(this.props.match.params.courseId)
             .then(course => {
                 this.setState({course: course});
@@ -52,14 +82,6 @@ class CourseEditor extends React.Component {
         })
     };
 
-    LessonBarChanged = (event) => {
-        this.setState({
-            newLesson: {
-                title: event.target.value,
-            }
-        })
-    };
-
     TopicBarChanged = (event) => {
         this.setState({
             newTopic: {
@@ -68,67 +90,54 @@ class CourseEditor extends React.Component {
         })
     };
 
-    render() {
 
-        if (this.state.course.module == null || this.state.course.module == undefined || this.state.course.module.length == 0){
+    setEditingModule = (moduleId) => {
+        this.setState({currentModuleEdit: moduleId});
+    };
+
+    setEditingLesson = (lessonId) => {
+        this.setState({currentLessonEdit: lessonId})
+    };
+
+
+    render() {
+        if (this.state.course.module == null || this.state.course.module === undefined || this.state.course.module.length === 0) {
             this.courseService.deleteCourse(this.props.match.params.courseId);
             window.location.href = 'http://localhost:3000/whiteboard';
         }
-
-
-
 
         return (
             <div>
                 <h1>{this.state.course.title}</h1>
                 <input onChange={this.moduleBarChanged} type="text" placeholder="Module"/>
-                <i className="fas fa-pen"
+                <i className="fa fa-plus-square" style={{cursor: 'pointer'}}
                    onClick={() => {
                        this.moduleService.createModule(this.state.newModule, this.props.match.params.courseId).then(() => {
                            this.updatePage();
                        })
-                   }}>icon</i>
+                   }}/>
                 <div style={{width: '100%'}}>
-                    <div style={{width: '20%', float: 'left'}}>
-                        {/*Module and Lesson*/}
-                        {this.state.course.module.map((module, index) => {
-                                return <div key={index}>
-                                    <h3>
-                                        <div>{"Module:" + module.title}
-                                            <span className="pull-right">
-                                            <i className="fa fa-trash"
-                                               onClick={() => {
-                                                   this.moduleService.deleteModule(module.id).then(() => {
-                                                       this.updatePage();
-                                                   })
-                                               }}/>
-                                            </span>
-                                        </div>
-                                    </h3>
-                                    <input onChange={this.LessonBarChanged} type="text" placeholder="Lesson"/>
-                                    <span className="pull-right">
-                                    <i className="fas fas fa-pen"
-                                       onClick={() => {
-                                           this.lessonService.createLesson(this.state.newLesson, module.id).then(() => {
-                                               this.updatePage();
-                                           })
-                                       }}>icon</i>
-                                    </span>
+                    <div style={{width: '23%', float: 'left'}}>
+                        {/*Module*/}
+                        {this.state.course.module.map((module, moduleIndex) => {
+                                return <div key={moduleIndex}>
+                                    <ModuleRow module={module}
+                                               createLesson={this.createLesson}
+                                               currentModuleEdit={this.state.currentModuleEdit}
+                                               setEditingModule={this.setEditingModule}
+                                               deleteModule={this.deleteModule}
+                                               updateModule={this.updateModule}/>
                                     {/*Lesson*/}
-                                    {this.state.course.module[index].lesson.map((lesson, i) => {
-                                            return <li key={i}
-                                                       onClick={() => this.currentSelect(index, i, 0)}>
-                                                {"Lesson:" + lesson.title}
-                                                <span className="pull-right">
-                                                <i className="fa fa-trash"
-                                                   onClick={() => {
-                                                       this.lessonService.deleteLesson(lesson.id).then(() => {
-                                                           this.currentSelect(0, 0, 0);
-                                                           this.updatePage();
-                                                       })
-                                                   }}/>
-                                                </span>
-                                            </li>
+                                    {this.state.course.module[moduleIndex].lesson.map((lesson, lessonIndex) => {
+                                            return <LessonTab
+                                                lesson={lesson}
+                                                moduleIndex={moduleIndex}
+                                                lessonIndex={lessonIndex}
+                                                currentLessonEdit={this.state.currentLessonEdit}
+                                                setEditingLesson={this.setEditingLesson}
+                                                deleteLesson={this.deleteLesson}
+                                                updateLesson={this.updateLesson}
+                                                currentSelect={this.currentSelect}/>
                                         }
                                     )}
                                 </div>
@@ -147,20 +156,15 @@ class CourseEditor extends React.Component {
                             Create Topic
                         </button>
                         <ul className="nav nav-tabs">
-                            {this.state.course.module[this.state.currentModule].lesson[this.state.currentLesson].topic.map((topic, i) => {
-                                    return <li key={i} className="nav-item"
-                                               onClick={() => this.currentSelect(this.state.currentModule,
-                                                   this.state.currentLesson, i)}>
-                                        <a className="nav-link" href="#">
-                                            {"Topic:" + topic.title}
-                                            <i className="fa fa-trash"
-                                               onClick={() => this.topicService.deleteTopic(topic.id).then(() => {
-                                                   this.updatePage();
-                                               })}
-
-                                            />
-                                        </a>
-                                    </li>
+                            {console.log(this.state.course.module[this.state.currentModule].title+"&&&&&"+this.state.currentLesson)}
+                            {this.state.course.module[this.state.currentModule].lesson[this.state.currentLesson].topic.map((topic, topicIndex) => {
+                                    return <TopicPills
+                                        topic={topic}
+                                        topicIndex={topicIndex}
+                                        currentSelect={this.currentSelect}
+                                        deleteTopic={this.deleteTopic}
+                                        currentLesson={this.state.currentLesson}
+                                        currentModule={this.state.currentModule}/>
                                 }
                             )}
                         </ul>
@@ -169,18 +173,6 @@ class CourseEditor extends React.Component {
             </div>
         )
     }
-
-
-    // render() {
-    //     return (
-    //         <div>
-    //             <h1>Course Editor {this.props.match.params.courseId}</h1>
-    //             <ModuleList course={this.state.course}/>
-    //         </div>
-    //     )
-    // }
-
-
 }
 
 export default CourseEditor;

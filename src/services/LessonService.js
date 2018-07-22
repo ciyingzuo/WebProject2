@@ -2,10 +2,10 @@ let _singleton = Symbol();
 
 class LessonService {
 
-    Lesson_API_URL = 'http://localhost:8080/api/lesson';
+    Lesson_API_URL = 'http://localhost:8080/api/lesson/';
 
     deleteLesson(lessonId) {
-        return fetch(this.Lesson_API_URL + '/delete/' + lessonId, {
+        return fetch(this.Lesson_API_URL + lessonId, {
             method: 'delete'
         })
             .then(function (response) {
@@ -14,7 +14,7 @@ class LessonService {
     }
 
     createLesson(lesson, moduleId) {
-        return fetch(this.Lesson_API_URL + '/' + moduleId + "/lesson", {
+        return fetch(this.Lesson_API_URL + moduleId, {
             method: 'post',
             body: JSON.stringify(lesson),
             headers: {
@@ -26,7 +26,15 @@ class LessonService {
             });
     }
 
-
+    updateLesson(lesson){
+        return fetch(this.Lesson_API_URL + lesson.id, {
+            method: 'put',
+            body: JSON.stringify(lesson),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+    }
 
     constructor(singletonToken) {
         if (_singleton !== singletonToken)

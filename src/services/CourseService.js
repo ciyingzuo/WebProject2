@@ -14,7 +14,7 @@ class CourseService {
     }
 
     updateCourse(course){
-        fetch(this.COURSE_API_URL + course.id, {
+        return fetch(this.COURSE_API_URL + course.id, {
             method: 'put',
             body: JSON.stringify(course),
             headers: {
