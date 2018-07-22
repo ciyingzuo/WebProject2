@@ -6,41 +6,11 @@ import CourseService from "../services/CourseService";
 class CourseRow extends React.Component {
     constructor(props) {
         super(props);
-        this.courseService = CourseService.instance;
         this.state = {
-            course: {
-                title: '',
-                created: '',
-                modified: ''
-            },
-            newCourse: {},
+            course: this.props.course,
             editing: 0
         }
     }
-
-    componentDidMount() {
-        this.courseService.findCourseById(this.props.course.id)
-            .then(course => {
-                this.setState({course: course});
-            });
-    }
-
-    updatePage() {
-        this.setState({editing: 0});
-        this.courseService.findCourseById(this.props.course.id)
-            .then(course => {
-                this.setState({course: course});
-            });
-    }
-
-    formChanged = (event) => {
-        this.setState({
-            newCourse: {
-                title: event.target.value,
-                id: this.state.course.id
-            }
-        })
-    };
 
     switchMode = () => {
         if (this.state.editing === 0) {
@@ -50,12 +20,11 @@ class CourseRow extends React.Component {
             </div>
         } else {
             return <div className="container-fluid">
-                <input onChange={this.formChanged} className="form-control" placeholder={this.state.course.title}/>
-                <i className="fa fa-plus-square"
+                <input onChange={(event) => {this.state.course.title = event.target.value}} className="form-control" placeholder={this.state.course.title}/>
+                <i className="fa fa-plus-square" style={{cursor: 'pointer'}}
                    onClick={() => {
-                       this.courseService.updateCourse(this.state.newCourse).then(() => {
-                           this.updatePage();
-                       })
+                       this.props.updateCourse(this.state.course)
+                       this.setState({editing: 0})
                    }
                    }/>
             </div>

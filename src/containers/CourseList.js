@@ -30,16 +30,18 @@ class CourseList extends React.Component {
 
     deleteCourse = (courseId) => {
         this.courseService.deleteCourse(courseId)
-            .then(() => this.courseService.findAllCourses())
-            .then(courses => this.setState({courses: courses}))
+            .then(() => this.componentDidMount())
     };
 
+    updateCourse = (course) => {
+        this.courseService.updateCourse(course)
+            .then(() => this.componentDidMount())
+    };
 
     createCourse = () => {
         this.courseService.createCourse(this.state.newCourse)
-            .then(() => this.courseService.findAllCourses())
-            .then(courses => this.setState({courses: courses}))
-            .then(this.setState({newCourse:''}));
+            .then(() => this.componentDidMount());
+        this.setState({newCourse: ''});
     };
 
 
@@ -55,14 +57,17 @@ class CourseList extends React.Component {
                     <tr>
                         <th><input onChange={this.formChanged} className="form-control"/></th>
                         <th>
-                            <button onClick={this.createCourse} className="btn btn-primary">Add</button>
+                            <button onClick={this.createCourse} className="btn btn-primary">Add Course</button>
                         </th>
                     </tr>
                     </thead>
+                    <tbody>
                     {this.state.courses.map((course, index) =>
                         <CourseRow key={index}
                                    deleteCourse={this.deleteCourse}
+                                   updateCourse={this.updateCourse}
                                    course={course}/>)}
+                    </tbody>
                 </table>
             </div>
         )

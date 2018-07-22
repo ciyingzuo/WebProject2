@@ -30,42 +30,35 @@ class CourseEditor extends React.Component {
     }
 
     deleteModule = (moduleId) => {
-        this.moduleService.deleteModule(moduleId).then(() => this.updatePage())
+        this.moduleService.deleteModule(moduleId).then(() => this.componentDidMount())
     };
 
     updateModule = (module) => {
-        this.moduleService.updateModule(module).then(() => this.updatePage())
+        this.moduleService.updateModule(module).then(() => this.componentDidMount())
     };
 
     deleteLesson = (lessonId) => {
         this.currentSelect(0, 0, 0);
-        this.lessonService.deleteLesson(lessonId).then(() => this.updatePage())
+        this.lessonService.deleteLesson(lessonId).then(() => this.componentDidMount())
     };
 
     updateLesson = (lesson) => {
-        this.lessonService.updateLesson(lesson).then(() => this.updatePage())
+        this.lessonService.updateLesson(lesson).then(() => this.componentDidMount())
     };
 
     createLesson = (lesson, moduleId) => {
-        this.lessonService.createLesson(lesson, moduleId).then(() => this.updatePage())
+        this.lessonService.createLesson(lesson, moduleId).then(() => this.componentDidMount())
     };
 
     deleteTopic = (topicId) => {
-        this.topicService.deleteTopic(topicId).then(() => this.updatePage())
+        this.topicService.deleteTopic(topicId).then(() => this.componentDidMount())
     };
 
     currentSelect = (moduleId, lessonId, topicId) => {
         this.setState({currentModule: moduleId});
         this.setState({currentLesson: lessonId});
         this.setState({currentTopic: topicId})
-    }
-
-    updatePage = () => {
-        this.courseService.findCourseById(this.props.match.params.courseId)
-            .then(course => {
-                this.setState({course: course});
-            });
-    }
+    };
 
     componentDidMount() {
         this.courseService.findCourseById(this.props.match.params.courseId)
@@ -113,7 +106,7 @@ class CourseEditor extends React.Component {
                 <i className="fa fa-plus-square" style={{cursor: 'pointer'}}
                    onClick={() => {
                        this.moduleService.createModule(this.state.newModule, this.props.match.params.courseId).then(() => {
-                           this.updatePage();
+                           this.componentDidMount();
                        })
                    }}/>
                 <div style={{width: '100%'}}>
@@ -129,7 +122,7 @@ class CourseEditor extends React.Component {
                                                updateModule={this.updateModule}/>
                                     {/*Lesson*/}
                                     {this.state.course.module[moduleIndex].lesson.map((lesson, lessonIndex) => {
-                                            return <LessonTab
+                                            return <LessonTab key={lessonIndex}
                                                 lesson={lesson}
                                                 moduleIndex={moduleIndex}
                                                 lessonIndex={lessonIndex}
@@ -150,15 +143,14 @@ class CourseEditor extends React.Component {
                                 onClick={() =>
                                     this.topicService.createTopic(this.state.newTopic,
                                         this.state.course.module[this.state.currentModule].lesson[this.state.currentLesson].id).then(() => {
-                                        this.updatePage();
+                                        this.componentDidMount ();
                                     })
                                 }>
                             Create Topic
                         </button>
                         <ul className="nav nav-tabs">
-                            {console.log(this.state.course.module[this.state.currentModule].title+"&&&&&"+this.state.currentLesson)}
                             {this.state.course.module[this.state.currentModule].lesson[this.state.currentLesson].topic.map((topic, topicIndex) => {
-                                    return <TopicPills
+                                    return <TopicPills key={topicIndex}
                                         topic={topic}
                                         topicIndex={topicIndex}
                                         currentSelect={this.currentSelect}
