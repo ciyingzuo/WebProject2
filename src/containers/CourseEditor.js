@@ -94,7 +94,7 @@ class CourseEditor extends React.Component {
     render() {
         if (this.state.course.module == null || this.state.course.module === undefined || this.state.course.module.length === 0) {
             this.courseService.deleteCourse(this.props.match.params.courseId);
-            window.location.href = 'http://localhost:3000/whiteboard';
+            window.location.href = 'https://ciyingzuo-webdev-hw2.herokuapp.com/whiteboard';
         }
         return (
             <div>

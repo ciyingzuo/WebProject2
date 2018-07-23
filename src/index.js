@@ -11,14 +11,14 @@ class WhiteBoard extends React.Component {
         return (
             <div className="container-fluid">
                 <h1>Whiteboard</h1><CourseList/>
-           </div>
+            </div>
         )
     }
 }
 
 class App extends React.Component {
     render() {
-        return(
+        return (
             <Router>
                 <div className="container-fluid">
                     <Link to="/whiteboard">WhiteBoard</Link> |
@@ -30,12 +30,11 @@ class App extends React.Component {
 
         );
 
-    }}
+    }
+}
 
 ReactDOM.render(
-
     <App/>,
 
     document.getElementById('root')
-
 );
