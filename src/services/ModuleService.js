@@ -2,7 +2,9 @@ let _singleton = Symbol();
 
 class ModuleService {
 
-    MODULE_API_URL = 'http://localhost:8080/api/module/';
+    HEROKU_URL= 'https://arcane-plains-62348.herokuapp.com/api/module/';
+    LOCAL_URL = 'http://localhost:8080/api/module/';
+    MODULE_API_URL = this.HEROKU_URL;
 
     deleteModule(moduleId) {
         return fetch(this.MODULE_API_URL + moduleId, {

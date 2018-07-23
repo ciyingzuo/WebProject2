@@ -41,6 +41,7 @@ class CourseList extends React.Component {
     updatePage() {
 
 
+
         this.courseService.findAllCourses()
 
             .then(courses => {

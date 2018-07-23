@@ -15,9 +15,11 @@ class CourseEditor extends React.Component {
         this.lessonService = LessonService.instance;
         this.topicService = TopicService.instance;
         this.state = {
+            //index
             currentModule: 0,
             currentLesson: 0,
             currentTopic: 0,
+            //id
             currentModuleEdit: 0,
             currentLessonEdit: 0,
             newModule: {},
@@ -39,7 +41,7 @@ class CourseEditor extends React.Component {
 
     deleteLesson = (lessonId) => {
         this.currentSelect(0, 0, 0);
-        this.lessonService.deleteLesson(lessonId).then(() => this.componentDidMount())
+        this.lessonService.deleteLesson(lessonId).then(() => this.componentDidMount());
     };
 
     updateLesson = (lesson) => {
@@ -55,9 +57,8 @@ class CourseEditor extends React.Component {
     };
 
     currentSelect = (moduleId, lessonId, topicId) => {
-        this.setState({currentModule: moduleId});
-        this.setState({currentLesson: lessonId});
-        this.setState({currentTopic: topicId})
+        console.log("set select");
+        this.setState({currentModule: moduleId}, {currentLesson: lessonId}, {currentTopic: topicId});
     };
 
     componentDidMount() {
@@ -111,7 +112,7 @@ class CourseEditor extends React.Component {
                         {/*Module*/}
                         {this.state.course.module.map((module, moduleIndex) => {
                                 if (moduleIndex !== 0) {
-                                    return <div key={moduleIndex.id}>
+                                    return <div key={moduleIndex}>
                                         <ModuleRow module={module}
                                                    createLesson={this.createLesson}
                                                    currentModuleEdit={this.state.currentModuleEdit}
@@ -119,21 +120,22 @@ class CourseEditor extends React.Component {
                                                    deleteModule={this.deleteModule}
                                                    updateModule={this.updateModule}/>
                                         {/*Lesson*/}
-                                        {this.state.course.module[moduleIndex].lesson.map((lesson, lessonIndex) => {
-                                                if (lessonIndex === 0) {
-                                                    return
+                                        <ul className="list-group">
+                                            {this.state.course.module[moduleIndex].lesson.map((lesson, lessonIndex) => {
+                                                    return <LessonTab key={lessonIndex}
+                                                                      lesson={lesson}
+                                                                      moduleIndex={moduleIndex}
+                                                                      lessonIndex={lessonIndex}
+                                                                      currentModule={this.state.currentModule}
+                                                                      currentLesson={this.state.currentLesson}
+                                                                      currentLessonEdit={this.state.currentLessonEdit}
+                                                                      setEditingLesson={this.setEditingLesson}
+                                                                      deleteLesson={this.deleteLesson}
+                                                                      updateLesson={this.updateLesson}
+                                                                      currentSelect={this.currentSelect}/>
                                                 }
-                                                return <LessonTab key={lesson.id}
-                                                                  lesson={lesson}
-                                                                  moduleIndex={moduleIndex}
-                                                                  lessonIndex={lessonIndex}
-                                                                  currentLessonEdit={this.state.currentLessonEdit}
-                                                                  setEditingLesson={this.setEditingLesson}
-                                                                  deleteLesson={this.deleteLesson}
-                                                                  updateLesson={this.updateLesson}
-                                                                  currentSelect={this.currentSelect}/>
-                                            }
-                                        )}
+                                            )}
+                                        </ul>
                                     </div>
                                 }
                             }
@@ -151,10 +153,10 @@ class CourseEditor extends React.Component {
                             Create Topic
                         </button>
                         <ul className="nav nav-tabs">
-
-                            {(this.state.course.module[this.state.currentModule].lesson[this.state.currentLesson]) && this.state.course.module[this.state.currentModule].lesson[this.state.currentLesson].topic.map((topic, topicIndex) => {
-                                    if (this.state.currentModule !== 0) {
-                                        return <TopicPills key={topic.id}
+                            {this.state.course.module[this.state.currentModule].lesson[this.state.currentLesson].topic.map((topic, topicIndex) => {
+                                    if (this.state.currentModule !== 0 && topicIndex !== 0) {
+                                        console.log(this.state.currentModule+"  "+this.state.currentLesson);
+                                        return <TopicPills key={topicIndex}
                                                            topic={topic}
                                                            topicIndex={topicIndex}
                                                            currentSelect={this.currentSelect}

@@ -22,7 +22,7 @@ class ModuleRow extends React.Component {
         if (this.props.currentModuleEdit !== this.state.module.id) {
             return <div>
                 <h3>
-                    <div style={{cursor: 'pointer'}}>{"Module:" + this.state.module.title}
+                    <div>{"Module:" + this.state.module.title}
                         <span className="pull-right">
                         <i className="fa fa-plus-square" style={{cursor: 'pointer'}}
                            onClick={() => {
