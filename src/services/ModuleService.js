@@ -13,7 +13,7 @@ class ModuleService {
             });
     }
 
-    updateModule(module){
+    updateModule(module) {
         return fetch(this.MODULE_API_URL + module.id, {
             method: 'put',
             body: JSON.stringify(module),
@@ -24,7 +24,7 @@ class ModuleService {
     }
 
     createModule(module, courseId) {
-        return fetch(this.MODULE_API_URL +courseId, {
+        return fetch(this.MODULE_API_URL + courseId, {
             method: 'post',
             body: JSON.stringify(module),
             headers: {
@@ -38,7 +38,7 @@ class ModuleService {
 
 
     findAllModule(courseId) {
-        return fetch(this.MODULE_API_URL+'/courseId/'+courseId)
+        return fetch(this.MODULE_API_URL + courseId)
             .then(function (response) {
                 return response.json();
             });
