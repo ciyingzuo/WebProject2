@@ -2,7 +2,9 @@ let _singleton = Symbol();
 
 class ModuleService {
 
-    MODULE_API_URL = 'http://localhost:8080/api/module/';
+    HEROKU_URL= 'https://arcane-plains-62348.herokuapp.com/api/module/';
+    LOCAL_URL = 'http://localhost:8080/api/module/';
+    MODULE_API_URL = this.HEROKU_URL;
 
     deleteModule(moduleId) {
         return fetch(this.MODULE_API_URL + moduleId, {
@@ -13,7 +15,7 @@ class ModuleService {
             });
     }
 
-    updateModule(module){
+    updateModule(module) {
         return fetch(this.MODULE_API_URL + module.id, {
             method: 'put',
             body: JSON.stringify(module),
@@ -24,7 +26,7 @@ class ModuleService {
     }
 
     createModule(module, courseId) {
-        return fetch(this.MODULE_API_URL +courseId, {
+        return fetch(this.MODULE_API_URL + courseId, {
             method: 'post',
             body: JSON.stringify(module),
             headers: {
@@ -38,7 +40,7 @@ class ModuleService {
 
 
     findAllModule(courseId) {
-        return fetch(this.MODULE_API_URL+'/courseId/'+courseId)
+        return fetch(this.MODULE_API_URL + courseId)
             .then(function (response) {
                 return response.json();
             });

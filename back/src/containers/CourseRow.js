@@ -56,19 +56,19 @@ class CourseRow extends React.Component {
                 </td>
                 <td>
                     <i className="fa fa-trash" style={{cursor: 'pointer'}}
-                       onClick={() => {
-                           this.setState({exist: 1});
-                           this.props.deleteCourse(this.state.course.id);
-                       }
-                       }/>
-                    <i className="fa fa-plus-square" style={{cursor: 'pointer'}}
-                       onClick={() =>
-                           this.setState({editing: 1})
-                       }/>
-                </td>
-            </tr>
-        )
-    }
-}
+                            onClick={() => {
+                                this.setState({exist: 1});
+                                this.props.deleteCourse(this.state.course.id);
+                            }
+                            }/>
+                                <i className="fa fa-plus-square" style={{cursor: 'pointer'}}
+                                onClick={() =>
+                                    this.setState({editing: 1})
+                                }/>
+                                </td>
+                                </tr>
+                                )
+                            }
+                    }
 
-export default CourseRow;
+                    export default CourseRow;

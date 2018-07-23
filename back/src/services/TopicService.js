@@ -2,9 +2,7 @@ let _singleton = Symbol();
 
 class TopicService {
 
-    HEROKU_URL= 'https://arcane-plains-62348.herokuapp.com/api/topic/';
-    LOCAL_URL = 'http://localhost:8080/api/topic/';
-    Topic_API_URL = this.HEROKU_URL;
+    Topic_API_URL = 'http://localhost:8080/api/topic';
 
     deleteTopic(topicId) {
         return fetch(this.Topic_API_URL + '/delete/' + topicId, {

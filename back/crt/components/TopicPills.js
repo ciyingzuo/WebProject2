@@ -10,10 +10,10 @@ class TopicPills extends React.Component {
     }
 
     render() {
-        return <li className="nav-item"
+        return <li className="nav-item" style={{cursor: 'pointer'}}
                    onClick={() => this.props.currentSelect(this.props.currentModule,
                        this.props.currentLesson, this.props.topicIndex)}>
-            <a className="nav-link" style={{cursor: 'pointer'}}>
+            <a className="nav-link">
                 {"Topic:" + this.state.topic.title}
                 <i className="fa fa-trash" style={{cursor: 'pointer'}}
                    onClick={() => this.props.deleteTopic(this.state.topic.id)}/>

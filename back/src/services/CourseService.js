@@ -2,12 +2,9 @@ let _singleton = Symbol();
 
 class CourseService {
 
-    HEROKU_URL= 'https://arcane-plains-62348.herokuapp.com/api/course/';
-    LOCAL_URL = 'http://localhost:8080/api/course/';
-    COURSE_API_URL = this.HEROKU_URL;
+    COURSE_API_URL = 'http://localhost:8080/api/course/';
 
     deleteCourse(courseId) {
-
         return fetch(this.COURSE_API_URL + 'delete/' + courseId, {
             method: 'delete'
         })

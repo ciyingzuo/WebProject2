@@ -111,7 +111,7 @@ class CourseEditor extends React.Component {
                         {/*Module*/}
                         {this.state.course.module.map((module, moduleIndex) => {
                                 if (moduleIndex !== 0) {
-                                    return <div key={moduleIndex.id}>
+                                    return <div key={moduleIndex}>
                                         <ModuleRow module={module}
                                                    createLesson={this.createLesson}
                                                    currentModuleEdit={this.state.currentModuleEdit}
@@ -120,10 +120,7 @@ class CourseEditor extends React.Component {
                                                    updateModule={this.updateModule}/>
                                         {/*Lesson*/}
                                         {this.state.course.module[moduleIndex].lesson.map((lesson, lessonIndex) => {
-                                                if (lessonIndex === 0) {
-                                                    return
-                                                }
-                                                return <LessonTab key={lesson.id}
+                                                return <LessonTab key={lessonIndex}
                                                                   lesson={lesson}
                                                                   moduleIndex={moduleIndex}
                                                                   lessonIndex={lessonIndex}
@@ -151,10 +148,9 @@ class CourseEditor extends React.Component {
                             Create Topic
                         </button>
                         <ul className="nav nav-tabs">
-
-                            {(this.state.course.module[this.state.currentModule].lesson[this.state.currentLesson]) && this.state.course.module[this.state.currentModule].lesson[this.state.currentLesson].topic.map((topic, topicIndex) => {
+                            {this.state.course.module[this.state.currentModule].lesson[this.state.currentLesson].topic.map((topic, topicIndex) => {
                                     if (this.state.currentModule !== 0) {
-                                        return <TopicPills key={topic.id}
+                                        return <TopicPills key={topicIndex}
                                                            topic={topic}
                                                            topicIndex={topicIndex}
                                                            currentSelect={this.currentSelect}
