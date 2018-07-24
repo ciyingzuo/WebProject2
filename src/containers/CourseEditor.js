@@ -110,7 +110,9 @@ class CourseEditor extends React.Component {
                     <div style={{width: '23%', float: 'left'}}>
                         {/*Module*/}
                         {this.state.course.module.map((module, moduleIndex) => {
-                                if (moduleIndex !== 0) {
+                                if (moduleIndex === 0) {
+                                    return
+                                }
                                     return <div key={moduleIndex.id}>
                                         <ModuleRow module={module}
                                                    createLesson={this.createLesson}
@@ -135,7 +137,6 @@ class CourseEditor extends React.Component {
                                             }
                                         )}
                                     </div>
-                                }
                             }
                         )}
                     </div>
