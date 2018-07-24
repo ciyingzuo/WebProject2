@@ -2,7 +2,7 @@ let _singleton = Symbol();
 
 class TopicService {
 
-    HEROKU_URL= 'https://ciyingzuo-webdev-hw2.herokuapp.com/api/topic/';
+    HEROKU_URL= 'https://ciyingzuo-webdev-hw1.herokuapp.com/api/topic/';
     LOCAL_URL = 'http://localhost:8080/api/topic/';
     Topic_API_URL = this.HEROKU_URL;
 

@@ -2,7 +2,7 @@ let _singleton = Symbol();
 
 class ModuleService {
 
-    HEROKU_URL= 'https://ciyingzuo-webdev-hw2.herokuapp.com/api/module/';
+    HEROKU_URL= 'https://ciyingzuo-webdev-hw1.herokuapp.com/api/module/';
     LOCAL_URL = 'http://localhost:8080/api/module/';
     MODULE_API_URL = this.HEROKU_URL;
 
