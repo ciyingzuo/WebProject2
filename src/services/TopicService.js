@@ -16,7 +16,6 @@ class TopicService {
     }
 
     createTopic(topic, lessonId) {
-        console.log(lessonId);
         return fetch(this.Topic_API_URL + '/' + lessonId + "/topic", {
             method: 'post',
             body: JSON.stringify(topic),
