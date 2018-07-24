@@ -5,24 +5,14 @@ import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import '../node_modules/font-awesome/css/font-awesome.min.css';
 import CourseList from './containers/CourseList'
 import CourseEditor from './containers/CourseEditor'
-
-class WhiteBoard extends React.Component {
-    render() {
-        return (
-            <div className="container-fluid">
-                <h1>Whiteboard</h1><CourseList/>
-            </div>
-        )
-    }
-}
-
+import CourseManager from "./containers/CourseManager";
 class App extends React.Component {
     render() {
         return (
             <Router>
                 <div className="container-fluid">
-                    <Link to="/whiteboard">WhiteBoard</Link> |
-                    <Route path='/whiteboard' component={WhiteBoard}/>
+                    <Link to="/whiteboard">Course Manager</Link> |
+                    <Route path='/whiteboard' component={CourseManager}/>
                     <Route path='/courseEditor/:courseId' component={CourseEditor}/>
                 </div>
 

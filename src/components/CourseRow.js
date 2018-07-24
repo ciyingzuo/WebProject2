@@ -1,12 +1,12 @@
 import React from 'react'
 import {Route, Link} from 'react-router-dom'
-import CourseEditor from "./CourseEditor";
-import CourseService from "../services/CourseService";
+import CourseEditor from "../containers/CourseEditor";
+import CourseServiceClient from "../services/CourseService.client";
 
 class CourseRow extends React.Component {
     constructor(props) {
         super(props);
-        this.courseService = CourseService.instance;
+        this.courseService = CourseServiceClient.instance;
         this.state = {
             exist: 0,
             course: this.props.course,

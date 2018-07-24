@@ -1,6 +1,6 @@
 let _singleton = Symbol();
 
-class ModuleService {
+class ModuleServiceClient {
 
     HEROKU_URL= 'https://ciyingzuo-webdev-hw1.herokuapp.com/api/module/';
     LOCAL_URL = 'http://localhost:8080/api/module/';
@@ -39,7 +39,7 @@ class ModuleService {
     }
 
 
-    findAllModule(courseId) {
+    findAllModuleForCourse(courseId) {
         return fetch(this.MODULE_API_URL + courseId)
             .then(function (response) {
                 return response.json();
@@ -53,10 +53,10 @@ class ModuleService {
 
     static get instance() {
         if (!this[_singleton])
-            this[_singleton] = new ModuleService(_singleton);
+            this[_singleton] = new ModuleServiceClient(_singleton);
         return this[_singleton]
     }
 
 }
 
-export default ModuleService;
+export default ModuleServiceClient;

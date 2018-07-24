@@ -1,8 +1,8 @@
 import React from 'react';
 
-import CourseRow from './CourseRow';
+import CourseRow from '../components/CourseRow';
 
-import CourseService from '../services/CourseService';
+import CourseServiceClient from '../services/CourseService.client';
 
 
 class CourseList extends React.Component {
@@ -12,7 +12,7 @@ class CourseList extends React.Component {
         super();
         this.updatePage = this.updatePage.bind(this);
         this.createCourse = this.createCourse.bind(this);
-        this.courseService = CourseService.instance;
+        this.courseService = CourseServiceClient.instance;
 
         this.state = {
 

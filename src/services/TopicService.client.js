@@ -1,6 +1,6 @@
 let _singleton = Symbol();
 
-class TopicService {
+class TopicServiceClient {
 
     HEROKU_URL= 'https://ciyingzuo-webdev-hw1.herokuapp.com/api/topic/';
     LOCAL_URL = 'http://localhost:8080/api/topic/';
@@ -35,10 +35,10 @@ class TopicService {
 
     static get instance() {
         if (!this[_singleton])
-            this[_singleton] = new TopicService(_singleton);
+            this[_singleton] = new TopicServiceClient(_singleton);
         return this[_singleton]
     }
 
 }
 
-export default TopicService;
+export default TopicServiceClient;

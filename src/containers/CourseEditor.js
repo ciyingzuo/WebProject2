@@ -1,8 +1,8 @@
 import React from 'react'
-import CourseService from "../services/CourseService";
-import ModuleService from "../services/ModuleService";
-import LessonService from "../services/LessonService";
-import TopicService from "../services/TopicService";
+import CourseServiceClient from "../services/CourseService.client";
+import ModuleServiceClient from "../services/ModuleService.client";
+import LessonServiceClient from "../services/LessonService.client";
+import TopicServiceClient from "../services/TopicService.client";
 import ModuleRow from "../components/ModuleRow";
 import LessonTab from "../components/LessonTab";
 import TopicPills from "../components/TopicPills";
@@ -10,10 +10,10 @@ import TopicPills from "../components/TopicPills";
 class CourseEditor extends React.Component {
     constructor(props) {
         super(props);
-        this.courseService = CourseService.instance;
-        this.moduleService = ModuleService.instance;
-        this.lessonService = LessonService.instance;
-        this.topicService = TopicService.instance;
+        this.courseService = CourseServiceClient.instance;
+        this.moduleService = ModuleServiceClient.instance;
+        this.lessonService = LessonServiceClient.instance;
+        this.topicService = TopicServiceClient.instance;
         this.state = {
             currentModule: 0,
             currentLesson: 0,
