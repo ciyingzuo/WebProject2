@@ -4,7 +4,7 @@ class CourseServiceClient {
 
     HEROKU_URL= 'https://ciyingzuo-webdev-hw1.herokuapp.com/api/course/';
     LOCAL_URL = 'http://localhost:8080/api/course/';
-    COURSE_API_URL = this.HEROKU_URL;
+    COURSE_API_URL = this.LOCAL_URL;
 
     deleteCourse(courseId) {
 

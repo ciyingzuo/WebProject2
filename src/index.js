@@ -6,17 +6,21 @@ import '../node_modules/font-awesome/css/font-awesome.min.css';
 import CourseList from './containers/CourseList'
 import CourseEditor from './containers/CourseEditor'
 import CourseManager from "./containers/CourseManager";
+import WidgetListContainer from './containers/widgets/WidgetListContainer'
+import {createStore} from 'redux'
+import {Provider} from 'react-redux'
+
+
 class App extends React.Component {
     render() {
         return (
-            <Router>
-                <div className="container-fluid">
-                    <Link to="/whiteboard">Course Manager</Link> |
-                    <Route path='/whiteboard' component={CourseManager}/>
-                    <Route path='/courseEditor/:courseId' component={CourseEditor}/>
-                </div>
-
-            </Router>
+                <Router>
+                    <div className="container-fluid">
+                        <Link to="/whiteboard">Course Manager</Link> |
+                        <Route path='/whiteboard' component={CourseManager}/>
+                        <Route path='/courseEditor/:courseId' component={CourseEditor}/>
+                    </div>
+                </Router>
 
         );
 

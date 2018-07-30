@@ -6,6 +6,11 @@ import TopicServiceClient from "../services/TopicService.client";
 import ModuleRow from "../components/ModuleRow";
 import LessonTab from "../components/LessonTab";
 import TopicPills from "../components/TopicPills";
+import {createStore} from 'redux'
+import {Provider} from 'react-redux'
+import WidgetListContainer from "./widgets/WidgetListContainer";
+import {widgetReducer} from "../reducer/widgetReducer";
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 
 class CourseEditor extends React.Component {
     constructor(props) {
@@ -92,9 +97,15 @@ class CourseEditor extends React.Component {
     };
 
     render() {
+        // let iniState = {
+        //     widgets: [],
+        //     topicID: this.state.course.module[this.state.currentModule].lesson[this.state.currentLesson].topic[this.state.currentTopic].id
+        // };
+        let store = createStore(widgetReducer);
+        // console.log(this.state.course.module[this.state.currentModule].lesson[this.state.currentLesson].topic[this.state.currentTopic].id);
         if (this.state.course.module == null || this.state.course.module === undefined || this.state.course.module.length === 0) {
             this.courseService.deleteCourse(this.props.match.params.courseId);
-            window.location.href = 'https://ciyingzuo-webdev-hw2.herokuapp.com/whiteboard';
+            // window.location.href = 'https://ciyingzuo-webdev-hw2.herokuapp.com/whiteboard';
         }
         return (
             <div>
@@ -111,62 +122,73 @@ class CourseEditor extends React.Component {
                         {/*Module*/}
                         {this.state.course.module.map((module, moduleIndex) => {
                                 if (moduleIndex === 0) {
-                                    return
+                                    return <div/>
                                 }
-                                    return <div key={moduleIndex.id}>
-                                        <ModuleRow module={module}
-                                                   createLesson={this.createLesson}
-                                                   currentModuleEdit={this.state.currentModuleEdit}
-                                                   setEditingModule={this.setEditingModule}
-                                                   deleteModule={this.deleteModule}
-                                                   updateModule={this.updateModule}/>
-                                        {/*Lesson*/}
-                                        {this.state.course.module[moduleIndex].lesson.map((lesson, lessonIndex) => {
-                                                if (lessonIndex === 0) {
-                                                    return
-                                                }
-                                                return <LessonTab key={lesson.id}
-                                                                  lesson={lesson}
-                                                                  moduleIndex={moduleIndex}
-                                                                  lessonIndex={lessonIndex}
-                                                                  currentLessonEdit={this.state.currentLessonEdit}
-                                                                  setEditingLesson={this.setEditingLesson}
-                                                                  deleteLesson={this.deleteLesson}
-                                                                  updateLesson={this.updateLesson}
-                                                                  currentSelect={this.currentSelect}/>
+                                return <div key={moduleIndex.id}>
+                                    <ModuleRow module={module}
+                                               key={moduleIndex.id}
+                                               createLesson={this.createLesson}
+                                               currentModuleEdit={this.state.currentModuleEdit}
+                                               setEditingModule={this.setEditingModule}
+                                               deleteModule={this.deleteModule}
+                                               updateModule={this.updateModule}/>
+                                    {/*Lesson*/}
+                                    {this.state.course.module[moduleIndex].lesson.map((lesson, lessonIndex) => {
+                                            if (lessonIndex === 0) {
+                                                return <div/>
                                             }
-                                        )}
-                                    </div>
+                                            return <LessonTab key={lesson.id}
+                                                              lesson={lesson}
+                                                              moduleIndex={moduleIndex}
+                                                              lessonIndex={lessonIndex}
+                                                              currentLessonEdit={this.state.currentLessonEdit}
+                                                              setEditingLesson={this.setEditingLesson}
+                                                              deleteLesson={this.deleteLesson}
+                                                              updateLesson={this.updateLesson}
+                                                              currentSelect={this.currentSelect}/>
+                                        }
+                                    )}
+                                </div>
                             }
                         )}
                     </div>
                     <div style={{width: '75%', float: 'right'}}>
-                        <input onChange={this.TopicBarChanged} type="text" placeholder="Topic"/>
-                        <button className="btn btn-primary"
-                                onClick={() =>
-                                    this.topicService.createTopic(this.state.newTopic,
-                                        this.state.course.module[this.state.currentModule].lesson[this.state.currentLesson].id).then(() => {
-                                        this.componentDidMount();
-                                    })
-                                }>
-                            Create Topic
-                        </button>
-                        <ul className="nav nav-tabs">
+                        <div>
+                            <input onChange={this.TopicBarChanged} type="text" placeholder="Topic"/>
+                            <button className="btn btn-primary"
+                                    onClick={() =>
+                                        this.topicService.createTopic(this.state.newTopic,
+                                            this.state.course.module[this.state.currentModule].lesson[this.state.currentLesson].id).then(() => {
+                                            this.componentDidMount();
+                                        })
+                                    }>
+                                Create Topic
+                            </button>
+                            <ul className="nav nav-tabs">
 
-                            {(this.state.course.module[this.state.currentModule].lesson[this.state.currentLesson]) && this.state.course.module[this.state.currentModule].lesson[this.state.currentLesson].topic.map((topic, topicIndex) => {
-                                    if (this.state.currentModule !== 0) {
-                                        return <TopicPills key={topic.id}
-                                                           topic={topic}
-                                                           topicIndex={topicIndex}
-                                                           currentSelect={this.currentSelect}
-                                                           deleteTopic={this.deleteTopic}
-                                                           currentLesson={this.state.currentLesson}
-                                                           currentModule={this.state.currentModule}/>
+                                {(this.state.course.module[this.state.currentModule].lesson[this.state.currentLesson]) && this.state.course.module[this.state.currentModule].lesson[this.state.currentLesson].topic.map((topic, topicIndex) => {
+                                        if (this.state.currentModule !== 0) {
+                                            return <TopicPills key={topic.id}
+                                                               topic={topic}
+                                                               topicIndex={topicIndex}
+                                                               currentSelect={this.currentSelect}
+                                                               deleteTopic={this.deleteTopic}
+                                                               currentLesson={this.state.currentLesson}
+                                                               currentModule={this.state.currentModule}/>
+                                        }
                                     }
-                                }
-                            )}
-                        </ul>
+                                )}
+                            </ul>
+                        </div>
+                        <div>
+                            <Provider store={store}>
+                                <Router>
+                                    <Route path={"/courseEditor/" + this.props.match.params.courseId + "/:topicId"} component={WidgetListContainer}/>
+                                </Router>
+                            </Provider>
+                        </div>
                     </div>
+
                 </div>
             </div>
         )

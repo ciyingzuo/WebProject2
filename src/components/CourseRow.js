@@ -27,7 +27,7 @@ class CourseRow extends React.Component {
                 }} className="form-control" placeholder={this.state.course.title}/>
                 <i className="fa fa-plus-square" style={{cursor: 'pointer'}}
                    onClick={() => {
-                       this.props.updateCourse(this.state.course)
+                       this.props.updateCourse(this.state.course);
                        this.setState({editing: 0})
                    }
                    }/>
