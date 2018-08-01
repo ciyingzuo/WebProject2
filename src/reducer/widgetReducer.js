@@ -51,8 +51,10 @@ export const widgetReducer = (state = initialState, action) => {
             };
         case 'UPDATE_WIDGET':
             console.log("UPDATE_WIDGET");
+            let course = state.course;
+            course.module[action.moduleIndex].lesson[action.lessonIndex].topic[action.topicIndex].widget[action.widgetIndex] = action.widget;
             return {
-                course: action.course,
+                course: course,
                 preview: state.preview
             };
         default:

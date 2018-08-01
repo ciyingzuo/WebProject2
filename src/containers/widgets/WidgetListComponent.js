@@ -39,13 +39,14 @@ class WidgetListComponent extends React.Component {
         })
     }
 
-    updateWidget(widget, index){
-        console.log(this.widgetList);
-        this.widgetList[index] = widget;
-        let newCourse = Object.assign({}, this.props.course);
-        newCourse.module[this.props.moduleIndex].lesson[this.props.lessonIndex].topic[this.props.topicIndex].widget = this.widgetList;
-        this.props.updateWidget(newCourse)
-    }
+    // updateWidget(widget, index, widgetList){
+    //
+    //     console.log(widgetList);
+    //     this.widgetList[index] = widget;
+    //     let newCourse = Object.assign({}, this.props.course);
+    //     newCourse.module[this.props.moduleIndex].lesson[this.props.lessonIndex].topic[this.props.topicIndex].widget = this.widgetList;
+    //     this.props.updateWidget(newCourse)
+    // }
 
     orderUp(index) {
         this.widgetList[index].widget_order = this.widgetList[index].widget_order - 1;
@@ -85,27 +86,8 @@ class WidgetListComponent extends React.Component {
                 <h1>Widget List ({this.widgetList.length})</h1>
                 <ul className="list-group">
                     <li className="list-group-item">
-                        <input ref={node => this.widgetTitle = node} className="form-control"/>
-                        <input ref={node => this.widgetText = node} className="form-control"/>
-                        <input ref={node => this.widgetSrc = node} className="form-control"/>
-                        <button onClick={() => {
-                            let widget = {
-                                widget_order: this.widgetList.length + 1,
-                                title: this.widgetTitle.value,
-                                type: this.widgetType.value,
-                                src: this.widgetSrc.value,
-                                text: this.widgetText.value
-                            };
-                            this.widgetTitle.value = '';
-                            this.widgetList = [
-                                widget,
-                                ...this.widgetList
-                            ];
-                            let newCourse = Object.assign({}, this.props.course);
-                            newCourse.module[this.props.moduleIndex].lesson[this.props.lessonIndex].topic[this.props.topicIndex].widget = this.widgetList;
-                            this.props.createWidget(newCourse)
-                        }} className="btn btn-success">Add Widget
-                        </button>
+                        <input ref={node => this.widgetTitle = node} placeholder="title" className="form-control"/>
+                        <input ref={node => this.widgetText = node} placeholder="text" className="form-control"/>
                         <select ref={node => this.widgetType = node} className="form-control">
                             <option value="HEADING">Heading Widget</option>
                             <option value="PARAGRAPH">Paragraph Widget</option>
@@ -114,10 +96,28 @@ class WidgetListComponent extends React.Component {
                             <option value="LIST">List Widget</option>
                             <option value="YOUTUBE">Youtube Widget</option>
                         </select>
+                        <button onClick={() => {
+                            let widget = {
+                                widget_order: this.widgetList.length + 1,
+                                title: this.widgetTitle.value,
+                                type: this.widgetType.value,
+                                text: this.widgetText.value
+                            };
+                            this.widgetTitle.value = '';
+                            this.widgetTitle.value = '';
+                            this.widgetText = [
+                                widget,
+                                ...this.widgetList
+                            ];
+                            let newCourse = Object.assign({}, this.props.course);
+                            newCourse.module[this.props.moduleIndex].lesson[this.props.lessonIndex].topic[this.props.topicIndex].widget = this.widgetList;
+                            this.props.createWidget(newCourse)
+                        }} className="btn btn-success">Add Widget
+                        </button>
                     </li>
                     {this.widgetList.map((widget, index) => {
                             return (<li className="list-group-item" key={index}>
-                                {widget.src} ({widget.id}) - {widget.type}
+                                <h3>{widget.type} Widget
                                 <button className="float-right btn btn-danger"
                                         onClick={() => {
                                             let newWidgetList = this.widgetList.filter(
@@ -147,10 +147,11 @@ class WidgetListComponent extends React.Component {
                                         }}>
                                     Down
                                 </button>
+                                </h3>
                                 <div>
                                     {widget.type === 'PARAGRAPH' &&
                                     <ParagraphWidget widget={widget} preview={this.props.preview}
-                                    index={index} updateWidget={this.updateWidget}/>}
+                                    index={index} updateWidget={this.props.updateWidget} widgetList={this.widgetList}/>}
                                     {widget.type === 'LINK' &&
                                     <LinkWidget widget={widget} preview={this.props.preview}
                                                 index={index} updateWidget={this.updateWidget}/>}
@@ -165,7 +166,11 @@ class WidgetListComponent extends React.Component {
                                                 index={index} updateWidget={this.updateWidget}/>}
                                     {widget.type === 'HEADING' &&
                                     <HeadingWidget widget={widget} preview={this.props.preview}
-                                                   index={index} updateWidget={this.updateWidget}/>}
+                                                   index={index} updateWidget={this.props.updateWidget}
+                                    moduleIndex={this.props.moduleIndex}
+                                                   lessonIndex={this.props.lessonIndex}
+                                                   topicIndex={this.props.topicIndex}
+                                    />}
                                 </div>
                             </li>)
                         }

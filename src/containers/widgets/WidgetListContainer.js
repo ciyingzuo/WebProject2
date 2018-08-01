@@ -34,15 +34,6 @@ const dispatcherToPropertyMapper = dispatch => (
                     }
                 ));
         },
-        loadWidget: topicId => {
-            fetch('http://localhost:8080/api/widget/'+topicId).then(response => response.json())
-                .then(widget => dispatch(
-                    {
-                        type: 'LOAD_WIDGET',
-                        widget: widget
-                    }
-                ));
-        },
         deleteWidget: course => dispatch({
             type: 'DELETE_WIDGET',
             course: course
@@ -54,9 +45,14 @@ const dispatcherToPropertyMapper = dispatch => (
         togglePreview: () => dispatch({
             type: 'TOGGLE_PREVIEW'
         }),
-        updateWidget: course => dispatch({
+        updateWidget: (widget, moduleIndex, lessonIndex, topicIndex, widgetIndex) => dispatch({
             type: 'UPDATE_WIDGET',
-            course: course
+            widget: widget,
+            moduleIndex: moduleIndex,
+            lessonIndex: lessonIndex,
+            topicIndex: topicIndex,
+            widgetIndex: widgetIndex,
+
         }),
         saveWidget: (moduleIndex, lessonIndex, topicIndex, topicId) => dispatch({
             type: 'SAVE_WIDGET',
@@ -65,15 +61,6 @@ const dispatcherToPropertyMapper = dispatch => (
             topicIndex: topicIndex,
             topicId: topicId,
         }),
-        loadAllWidgets: id => {
-            fetch('http://localhost:8080/api/widget/' + id).then(response => response.json())
-                .then(widget => dispatch(
-                    {
-                        type: 'ALL_WIDGETS',
-                        widgets: widget
-                    }
-                ));
-        }
     }
 );
 

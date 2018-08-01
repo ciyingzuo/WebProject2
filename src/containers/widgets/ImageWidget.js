@@ -5,7 +5,7 @@ export const ImageWidget = ({widget, updateWidget, preview, index}) => {
     let src;
     return(
         <div>
-            <h3>LinkWidget - {widget.title}</h3>
+            <h3>ImageWidget - {widget.title}</h3>
             <input onChange={() => {
                 widget.src = src.value;
                 updateWidget(widget, index)
