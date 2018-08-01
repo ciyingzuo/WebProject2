@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const ImageWidget = ({widget, updateWidget}) => {
+export const ImageWidget = ({widget, updateWidget, preview, index}) => {
     let text;
     let src;
     return(
@@ -8,7 +8,7 @@ export const ImageWidget = ({widget, updateWidget}) => {
             <h3>LinkWidget - {widget.title}</h3>
             <input onChange={() => {
                 widget.src = src.value;
-                updateWidget(widget)
+                updateWidget(widget, index)
             }} ref={node => src = node} className="form-control">
             </input>
             <input onChange={() => {

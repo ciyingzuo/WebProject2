@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const ParagraphWidget = ({widget, updateWidget}) => {
+export const ParagraphWidget = ({widget, updateWidget, preview, index}) => {
     let text;
     return(
         <div>
@@ -11,7 +11,7 @@ export const ParagraphWidget = ({widget, updateWidget}) => {
                     id: widget.id,
                     widgetType: widget.widgetType
                 };
-                updateWidget(newWidget)
+                updateWidget(newWidget, index)
             }} ref={node => text = node} className="form-control">
             </input>
             <h4>

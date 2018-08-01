@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const HeadingWidget =
-  ({widget, updateWidget}) =>
+  ({widget, updateWidget, preview, index}) =>
 {
   let text;
   let size;
@@ -11,7 +11,7 @@ export const HeadingWidget =
       <label htmlFor="text">Heading Text</label>
       <input onChange={() => {
         widget.text = text.value;
-        updateWidget(widget)
+        updateWidget(widget, index)
       }}
              ref={node => text = node}
              className="form-control" id="text"

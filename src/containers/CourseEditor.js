@@ -13,6 +13,7 @@ import {widgetReducer} from "../reducer/widgetReducer";
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 
 class CourseEditor extends React.Component {
+
     constructor(props) {
         super(props);
         this.courseService = CourseServiceClient.instance;
@@ -20,6 +21,7 @@ class CourseEditor extends React.Component {
         this.lessonService = LessonServiceClient.instance;
         this.topicService = TopicServiceClient.instance;
         this.state = {
+            ready: 0,
             currentModule: 0,
             currentLesson: 0,
             currentTopic: 0,
@@ -29,9 +31,39 @@ class CourseEditor extends React.Component {
             newLesson: {},
             newTopic: {},
             course: {
-                module: [{title: '', id: '', lesson: [{title: '', id: '', topic: [{title: '', id: ''}]}]}]
+                module: [{
+                    title: '', id: '', lesson: [{
+                        title: '', id: '', topic: [{
+                            title: '', id: '', widget: [
+                                {
+                                    id: '',
+                                    type: '',
+                                    widget_order: '',
+                                    name: '',
+                                    text: '',
+                                    className: '',
+                                    style: '',
+                                    width: '',
+                                    height: '',
+                                    src: '',
+                                    listItems: '',
+                                    ordered: '',
+                                    size: '',
+                                    href: '',
+                                }
+                            ]
+                        }]
+                    }]
+                }]
             }
-        }
+        };
+        let iniState = {
+            course: [],
+            widget: [],
+            preview: true
+        };
+        this.store = createStore(widgetReducer, iniState);
+
     }
 
     deleteModule = (moduleId) => {
@@ -99,10 +131,8 @@ class CourseEditor extends React.Component {
     render() {
         // let iniState = {
         //     widgets: [],
-        //     topicID: this.state.course.module[this.state.currentModule].lesson[this.state.currentLesson].topic[this.state.currentTopic].id
         // };
-        let store = createStore(widgetReducer);
-        // console.log(this.state.course.module[this.state.currentModule].lesson[this.state.currentLesson].topic[this.state.currentTopic].id);
+        // let store = createStore(widgetReducer, iniState);
         if (this.state.course.module == null || this.state.course.module === undefined || this.state.course.module.length === 0) {
             this.courseService.deleteCourse(this.props.match.params.courseId);
             // window.location.href = 'https://ciyingzuo-webdev-hw2.herokuapp.com/whiteboard';
@@ -165,10 +195,11 @@ class CourseEditor extends React.Component {
                                 Create Topic
                             </button>
                             <ul className="nav nav-tabs">
-
                                 {(this.state.course.module[this.state.currentModule].lesson[this.state.currentLesson]) && this.state.course.module[this.state.currentModule].lesson[this.state.currentLesson].topic.map((topic, topicIndex) => {
                                         if (this.state.currentModule !== 0) {
                                             return <TopicPills key={topic.id}
+                                                               courseId={this.props.match.params.courseId}
+                                                               topicId={topic.id}
                                                                topic={topic}
                                                                topicIndex={topicIndex}
                                                                currentSelect={this.currentSelect}
@@ -181,9 +212,15 @@ class CourseEditor extends React.Component {
                             </ul>
                         </div>
                         <div>
-                            <Provider store={store}>
+                            <Provider store={this.store}>
                                 <Router>
-                                    <Route path={"/courseEditor/" + this.props.match.params.courseId + "/:topicId"} component={WidgetListContainer}/>
+                                    <WidgetListContainer
+                                        courseId={this.props.match.params.courseId}
+                                        course={this.state.course}
+                                        topicId={this.state.course.module[this.state.currentModule].lesson[this.state.currentLesson].topic[this.state.currentTopic].id}
+                                        moduleIndex={this.state.currentModule}
+                                        lessonIndex={this.state.currentLesson}
+                                        topicIndex={this.state.currentTopic}/>
                                 </Router>
                             </Provider>
                         </div>

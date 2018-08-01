@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const YouTubeWidget = ({widget, updateWidget}) => {
+export const YouTubeWidget = ({widget, updateWidget, preview, index}) => {
   let src;
   return(
     <div>
@@ -9,7 +9,7 @@ export const YouTubeWidget = ({widget, updateWidget}) => {
              id="URL"
              onChange={() => {
                widget.src = src.value;
-               updateWidget(widget);
+               updateWidget(widget, index);
              }}
              className="form-control"/>
       <h4>Preview</h4>

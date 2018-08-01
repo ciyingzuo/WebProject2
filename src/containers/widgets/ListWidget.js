@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const ListWidget = ({widget, updateWidget}) => {
+export const ListWidget = ({widget, updateWidget, preview, index}) => {
   let text;
   let ordered;
   return(
@@ -10,13 +10,13 @@ export const ListWidget = ({widget, updateWidget}) => {
     className="form-control"
     onChange={() => {
         widget.listItems = text.value;
-        updateWidget(widget)
+        updateWidget(widget, index)
     }}
     value={widget.listItems}/>
       <label><input ref={node => ordered = node}
                     onClick={() => {
                       widget.ordered = ordered.checked;
-                      updateWidget(widget)
+                      updateWidget(widget, index)
                     }}
                     checked={widget.ordered}
                     type="checkbox"/> Ordered</label>
