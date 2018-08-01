@@ -1,12 +1,12 @@
 import React from 'react'
 import {Route, Link} from 'react-router-dom'
-import CourseEditor from "./CourseEditor";
-import CourseService from "../services/CourseService";
+import CourseEditor from "../containers/CourseEditor";
+import CourseServiceClient from "../services/CourseService.client";
 
 class CourseRow extends React.Component {
     constructor(props) {
         super(props);
-        this.courseService = CourseService.instance;
+        this.courseService = CourseServiceClient.instance;
         this.state = {
             exist: 0,
             course: this.props.course,
@@ -27,7 +27,7 @@ class CourseRow extends React.Component {
                 }} className="form-control" placeholder={this.state.course.title}/>
                 <i className="fa fa-plus-square" style={{cursor: 'pointer'}}
                    onClick={() => {
-                       this.props.updateCourse(this.state.course)
+                       this.props.updateCourse(this.state.course);
                        this.setState({editing: 0})
                    }
                    }/>
@@ -56,19 +56,19 @@ class CourseRow extends React.Component {
                 </td>
                 <td>
                     <i className="fa fa-trash" style={{cursor: 'pointer'}}
-                            onClick={() => {
-                                this.setState({exist: 1});
-                                this.props.deleteCourse(this.state.course.id);
-                            }
-                            }/>
-                                <i className="fa fa-plus-square" style={{cursor: 'pointer'}}
-                                onClick={() =>
-                                    this.setState({editing: 1})
-                                }/>
-                                </td>
-                                </tr>
-                                )
-                            }
-                    }
+                       onClick={() => {
+                           this.setState({exist: 1});
+                           this.props.deleteCourse(this.state.course.id);
+                       }
+                       }/>
+                    <i className="fa fa-plus-square" style={{cursor: 'pointer'}}
+                       onClick={() =>
+                           this.setState({editing: 1})
+                       }/>
+                </td>
+            </tr>
+        )
+    }
+}
 
-                    export default CourseRow;
+export default CourseRow;

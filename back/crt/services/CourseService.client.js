@@ -1,11 +1,14 @@
 let _singleton = Symbol();
 
-class ModuleService {
+class CourseServiceClient {
 
-    MODULE_API_URL = 'http://localhost:8080/api/module/';
+    HEROKU_URL= 'https://ciyingzuo-webdev-hw1.herokuapp.com/api/course/';
+    LOCAL_URL = 'http://localhost:8080/api/course/';
+    COURSE_API_URL = this.LOCAL_URL;
 
-    deleteModule(moduleId) {
-        return fetch(this.MODULE_API_URL + moduleId, {
+    deleteCourse(courseId) {
+
+        return fetch(this.COURSE_API_URL + 'delete/' + courseId, {
             method: 'delete'
         })
             .then(function (response) {
@@ -13,20 +16,27 @@ class ModuleService {
             });
     }
 
-    updateModule(module) {
-        return fetch(this.MODULE_API_URL + module.id, {
+    updateCourse(course){
+        return fetch(this.COURSE_API_URL + course.id, {
             method: 'put',
-            body: JSON.stringify(module),
+            body: JSON.stringify(course),
             headers: {
                 'Content-Type': 'application/json'
             }
         });
     }
 
-    createModule(module, courseId) {
-        return fetch(this.MODULE_API_URL + courseId, {
+    findCourseById(courseId) {
+        return fetch(this.COURSE_API_URL + courseId)
+            .then(function(response){
+                return response.json();
+            });
+    }
+
+    createCourse(course) {
+        return fetch(this.COURSE_API_URL, {
             method: 'post',
-            body: JSON.stringify(module),
+            body: JSON.stringify(course),
             headers: {
                 'content-type': 'application/json'
             }
@@ -37,12 +47,13 @@ class ModuleService {
     }
 
 
-    findAllModule(courseId) {
-        return fetch(this.MODULE_API_URL + courseId)
+    findAllCourses() {
+        return fetch(this.COURSE_API_URL)
             .then(function (response) {
                 return response.json();
             });
     }
+
 
     constructor(singletonToken) {
         if (_singleton !== singletonToken)
@@ -51,10 +62,10 @@ class ModuleService {
 
     static get instance() {
         if (!this[_singleton])
-            this[_singleton] = new ModuleService(_singleton);
+            this[_singleton] = new CourseServiceClient(_singleton);
         return this[_singleton]
     }
 
 }
 
-export default ModuleService;
+export default CourseServiceClient;

@@ -1,8 +1,8 @@
 let _singleton = Symbol();
 
-class CourseService {
+class CourseServiceClient {
 
-    HEROKU_URL= 'https://arcane-plains-62348.herokuapp.com/api/course/';
+    HEROKU_URL= 'https://ciyingzuo-webdev-hw1.herokuapp.com/api/course/';
     LOCAL_URL = 'http://localhost:8080/api/course/';
     COURSE_API_URL = this.LOCAL_URL;
 
@@ -62,10 +62,10 @@ class CourseService {
 
     static get instance() {
         if (!this[_singleton])
-            this[_singleton] = new CourseService(_singleton);
+            this[_singleton] = new CourseServiceClient(_singleton);
         return this[_singleton]
     }
 
 }
 
-export default CourseService;
+export default CourseServiceClient;

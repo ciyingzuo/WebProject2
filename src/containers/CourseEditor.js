@@ -88,13 +88,14 @@ class CourseEditor extends React.Component {
     };
 
     deleteTopic = (topicId) => {
-        this.topicService.deleteTopic(topicId).then(() => this.componentDidMount())
+        this.topicService.deleteTopic(topicId).then(() => this.componentDidMount());
+        this.currentSelect(this.state.currentModule, this.state.currentLesson, 0)
     };
 
-    currentSelect = (moduleId, lessonId, topicId) => {
-        this.setState({currentModule: moduleId});
-        this.setState({currentLesson: lessonId});
-        this.setState({currentTopic: topicId})
+    currentSelect = (moduleIndex, lessonIndex, topicIndex) => {
+        this.setState({currentModule: moduleIndex});
+        this.setState({currentLesson: lessonIndex});
+        this.setState({currentTopic: topicIndex})
     };
 
     componentDidMount() {
@@ -196,7 +197,7 @@ class CourseEditor extends React.Component {
                             </button>
                             <ul className="nav nav-tabs">
                                 {(this.state.course.module[this.state.currentModule].lesson[this.state.currentLesson]) && this.state.course.module[this.state.currentModule].lesson[this.state.currentLesson].topic.map((topic, topicIndex) => {
-                                        if (this.state.currentModule !== 0) {
+                                        if (this.state.currentModule !== 0 && topicIndex != 0) {
                                             return <TopicPills key={topic.id}
                                                                courseId={this.props.match.params.courseId}
                                                                topicId={topic.id}

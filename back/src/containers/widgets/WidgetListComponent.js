@@ -39,6 +39,14 @@ class WidgetListComponent extends React.Component {
         })
     }
 
+    // updateWidget(widget, index, widgetList){
+    //
+    //     console.log(widgetList);
+    //     this.widgetList[index] = widget;
+    //     let newCourse = Object.assign({}, this.props.course);
+    //     newCourse.module[this.props.moduleIndex].lesson[this.props.lessonIndex].topic[this.props.topicIndex].widget = this.widgetList;
+    //     this.props.updateWidget(newCourse)
+    // }
 
     orderUp(index) {
         this.widgetList[index].widget_order = this.widgetList[index].widget_order - 1;
@@ -51,17 +59,13 @@ class WidgetListComponent extends React.Component {
     }
 
     render() {
-        console.log(this.props.topicIndex);
-        if (this.props.topicIndex === 0 || this.props.moduleIndex === 0|| this.props.lessonIndex === 0) {
-            return null
-        }
-        if(this.props.course.module[this.props.moduleIndex] == null ||
-            this.props.course.module[this.props.moduleIndex].lesson[this.props.lessonIndex] == null ||
-            this.props.course.module[this.props.moduleIndex].lesson[this.props.lessonIndex].topic[this.props.topicIndex] == null){
-            console.log("reload course");
+// let widgetList;
+        if(!this.props.course.module[this.props.moduleIndex].lesson[this.props.lessonIndex].topic[this.props.topicIndex].widget){
             this.props.loadCourse(this.props.courseId);
         }
-        console.log(this.props.course);
+        if (this.props.topicIndex === 0) {
+            return null
+        }
         if (this.props.course !== null && this.props.course !== undefined) {
             this.widgetList = this.props.course.module[this.props.moduleIndex].lesson[this.props.lessonIndex].topic[this.props.topicIndex].widget;
         }

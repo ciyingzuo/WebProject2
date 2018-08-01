@@ -1,8 +1,8 @@
 let _singleton = Symbol();
 
-class TopicService {
+class TopicServiceClient {
 
-    HEROKU_URL= 'https://arcane-plains-62348.herokuapp.com/api/topic/';
+    HEROKU_URL= 'https://ciyingzuo-webdev-hw1.herokuapp.com/api/topic/';
     LOCAL_URL = 'http://localhost:8080/api/topic/';
     Topic_API_URL = this.LOCAL_URL;
 
@@ -16,7 +16,6 @@ class TopicService {
     }
 
     createTopic(topic, lessonId) {
-        console.log(lessonId);
         return fetch(this.Topic_API_URL + '/' + lessonId + "/topic", {
             method: 'post',
             body: JSON.stringify(topic),
@@ -36,10 +35,10 @@ class TopicService {
 
     static get instance() {
         if (!this[_singleton])
-            this[_singleton] = new TopicService(_singleton);
+            this[_singleton] = new TopicServiceClient(_singleton);
         return this[_singleton]
     }
 
 }
 
-export default TopicService;
+export default TopicServiceClient;

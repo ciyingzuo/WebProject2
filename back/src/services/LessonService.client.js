@@ -1,8 +1,10 @@
 let _singleton = Symbol();
 
-class LessonService {
+class LessonServiceClient {
 
-    Lesson_API_URL = 'http://localhost:8080/api/lesson/';
+    HEROKU_URL= 'https://ciyingzuo-webdev-hw1.herokuapp.com/api/lesson/';
+    LOCAL_URL = 'http://localhost:8080/api/lesson/';
+    Lesson_API_URL = this.LOCAL_URL;
 
     deleteLesson(lessonId) {
         return fetch(this.Lesson_API_URL + lessonId, {
@@ -36,6 +38,15 @@ class LessonService {
         });
     }
 
+    findAllLessonForModule(moduleId) {
+        return fetch(this.Lesson_API_URL + moduleId)
+            .then(function (response) {
+                return response.json();
+            });
+    }
+
+
+
     constructor(singletonToken) {
         if (_singleton !== singletonToken)
             throw new Error('Cannot instantiate directly.');
@@ -43,10 +54,10 @@ class LessonService {
 
     static get instance() {
         if (!this[_singleton])
-            this[_singleton] = new LessonService(_singleton);
+            this[_singleton] = new LessonServiceClient(_singleton);
         return this[_singleton]
     }
 
 }
 
-export default LessonService;
+export default LessonServiceClient;

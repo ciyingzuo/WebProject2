@@ -4,26 +4,6 @@ export const ListWidget = ({widget, updateWidget, preview, index, widgetList, mo
     let text;
     let widgetType;
     let ordered;
-
-    function orderPrepare(text) {
-        let newText = [];
-        text.split('\n').map((item, index) => {
-            newText = [
-                {content: item},
-                ...newText
-            ]
-        });
-        return newText
-    }
-
-    function order(propertyName) {
-            return function(object1, object2) {
-                let value1 = object1[propertyName];
-                let value2 = object2[propertyName];
-                return value1.localeCompare(value2);
-            };
-    }
-
     return (
         <div>
             <select ref={node => widgetType = node} className="form-control" value="LIST"
@@ -60,7 +40,7 @@ export const ListWidget = ({widget, updateWidget, preview, index, widgetList, mo
                           }}
                           checked={widget.ordered}
                           type="checkbox"/> Ordered</label>
-            <textarea placeholder={widget.text.split('\n').map((item, index) => (
+            <textarea placeholder={widget.listItems.split('\n').map((item, index) => (
                 {item}
             ))
             } onChange={() => {
@@ -78,14 +58,14 @@ export const ListWidget = ({widget, updateWidget, preview, index, widgetList, mo
             <h4>Preview</h4>
             {!widget.ordered &&
             <ul>
-                {widget.text.split('\n').map((item, index) => (
+                {widget.listItems.split('\n').map((item, index) => (
                     <li key={index}>{item}</li>
                 ))}
             </ul>
             }
             {widget.ordered &&
             <ol>
-                {orderPrepare(widget.text).sort(order).map((item, index) => (
+                {widget.listItems.split('\n').map((item, index) => (
                     <li key={index}>{item}</li>
                 ))}
             </ol>
@@ -93,4 +73,4 @@ export const ListWidget = ({widget, updateWidget, preview, index, widgetList, mo
 
         </div>
     );
-};
+}

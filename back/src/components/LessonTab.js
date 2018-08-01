@@ -12,7 +12,7 @@ class LessonTab extends React.Component {
 
     render() {
         if (this.props.currentLessonEdit !== this.state.lesson.id) {
-            return <li onClick={() => {
+            return <li className="list-group-item" style={{cursor: 'pointer'}} onClick={() => {
                 this.props.currentSelect(this.props.moduleIndex, this.props.lessonIndex, 0);
             }}>{"Lesson:" + this.state.lesson.title}
                 <span className="pull-right">
@@ -26,7 +26,7 @@ class LessonTab extends React.Component {
                                                    }}/>
             </span></li>
         } else {
-            return <li className="container-fluid">
+            return <li className="list-group-item" style={{cursor: 'pointer'}}>
                 <input onChange={(event) => {
                     this.state.lesson.title = event.target.value
                 }} className="form-control" placeholder={this.state.lesson.title}/>
