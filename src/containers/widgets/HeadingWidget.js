@@ -15,7 +15,7 @@ export const HeadingWidget =
                                 id: widget.id,
                                 type: widgetType.value,
                                 text: widget.text,
-                                ordered: widget.ordered
+                                widget_order: widget.widget_order
                             };
                             updateWidget(w, moduleIndex, lessonIndex, topicIndex, index)
                         }}>
@@ -34,7 +34,7 @@ export const HeadingWidget =
                         id: widget.id,
                         type: widgetType.value,
                         text: text.value,
-                        ordered: widget.ordered
+                        widget_order: widget.widget_order
                     };
                     updateWidget(w, moduleIndex, lessonIndex, topicIndex, index)
                 }}
@@ -48,7 +48,7 @@ export const HeadingWidget =
                         id: widget.id,
                         type: widgetType.value,
                         text: widget.text,
-                        ordered: widget.ordered
+                        widget_order: widget.widget_order
                     };
                     updateWidget(w, moduleIndex, lessonIndex, topicIndex, index)
                 }}
@@ -59,11 +59,11 @@ export const HeadingWidget =
                     <option value="3">Size 3</option>
                     <option value="4">Size 4</option>
                 </select>
-                <h4>Preview{widget.size}</h4>
-                {preview && widget.size == '1' && <h1>{widget.text}</h1>}
-                {preview && widget.size == '2' && <h2>{widget.text}</h2>}
-                {preview && widget.size == '3' && <h3>{widget.text}</h3>}
-                {preview && widget.size == '4' && <h4>{widget.text}</h4>}
+                {preview &&(<div><h4>Preview{widget.size}</h4>
+                {widget.size == '1' && <h1>{widget.text}</h1>}
+                {widget.size == '2' && <h2>{widget.text}</h2>}
+                {widget.size == '3' && <h3>{widget.text}</h3>}
+                {widget.size == '4' && <h4>{widget.text}</h4>}</div>)}
             </div>
         )
     };

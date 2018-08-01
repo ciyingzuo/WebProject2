@@ -14,7 +14,7 @@ export const ImageWidget = ({widget, updateWidget, preview, index, widgetList, m
                             type: widgetType.value,
                             text: widget.text,
                             src: widget.src,
-                            ordered: widget.ordered
+                            widget_order: widget.widget_order
                         };
                         updateWidget(w, moduleIndex, lessonIndex, topicIndex, index)
                     }}>
@@ -32,7 +32,7 @@ export const ImageWidget = ({widget, updateWidget, preview, index, widgetList, m
                     type: widget.type,
                     text: widget.text,
                     src: src.value,
-                    ordered: widget.ordered
+                    widget_order: widget.widget_order
                 };
                 updateWidget(w, moduleIndex, lessonIndex, topicIndex, index)
             }} ref={node => src = node} className="form-control">
@@ -44,18 +44,14 @@ export const ImageWidget = ({widget, updateWidget, preview, index, widgetList, m
                     type: widget.type,
                     text: text.value,
                     src: widget.src,
-                    ordered: widget.ordered
+                    widget_order: widget.widget_order
                 };
                 updateWidget(w, moduleIndex, lessonIndex, topicIndex, index)
             }} ref={node => text = node} className="form-control">
             </input>
-            <h4>
-                Preview
-            </h4>
-            <div>
-                {widget.text}
-            </div>
-            <img src={widget.src} alt={widget.text}/>
+            {preview && (<div><h4>Preview</h4>
+                <div> {widget.text}</div>
+                <img src={widget.src} alt={widget.text}/></div>)}
         </div>
     )
 };

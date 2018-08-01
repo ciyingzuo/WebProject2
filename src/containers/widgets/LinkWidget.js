@@ -4,7 +4,7 @@ export const LinkWidget = ({widget, updateWidget, preview, index, widgetList, mo
     let text;
     let widgetType;
     let href;
-    return(
+    return (
         <div>
             <select ref={node => widgetType = node} className="form-control" value="LINK"
                     onChange={() => {
@@ -14,7 +14,7 @@ export const LinkWidget = ({widget, updateWidget, preview, index, widgetList, mo
                             type: widgetType.value,
                             text: widget.text,
                             href: widget.href,
-                            ordered: widget.ordered
+                            widget_order: widget.widget_order
                         };
                         updateWidget(w, moduleIndex, lessonIndex, topicIndex, index)
                     }}>
@@ -31,7 +31,7 @@ export const LinkWidget = ({widget, updateWidget, preview, index, widgetList, mo
                     id: widget.id,
                     type: widget.type,
                     text: text.value,
-                    ordered: widget.ordered,
+                    widget_order: widget.widget_order,
                     href: widget.href
                 };
                 updateWidget(w, moduleIndex, lessonIndex, topicIndex, index)
@@ -43,18 +43,19 @@ export const LinkWidget = ({widget, updateWidget, preview, index, widgetList, mo
                     id: widget.id,
                     type: widget.type,
                     text: widget.text,
-                    ordered: widget.ordered,
+                    widget_order: widget.widget_order,
                     href: href.value
                 };
                 updateWidget(w, moduleIndex, lessonIndex, topicIndex, index)
             }} ref={node => href = node} className="form-control">
             </input>
-            <h4>
+            {preview && (<div><h4>
                 Preview
             </h4>
-            <div>
-                <a href={widget.href}> {widget.text} </a>
-            </div>
+                <div>
+                    <a href={widget.href}> {widget.text} </a>
+                </div>
+            </div>)}
         </div>
     )
 };

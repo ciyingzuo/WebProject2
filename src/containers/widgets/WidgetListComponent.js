@@ -60,6 +60,9 @@ class WidgetListComponent extends React.Component {
 
     render() {
 // let widgetList;
+        if(!this.props.course.module[this.props.moduleIndex].lesson[this.props.lessonIndex].topic[this.props.topicIndex].widget){
+            this.props.loadCourse(this.props.courseId);
+        }
         if (this.props.topicIndex === 0) {
             return null
         }
@@ -69,7 +72,7 @@ class WidgetListComponent extends React.Component {
         this.order(this.widgetList);
         return (
             <div>
-                <div className="float-right">
+                <div>
                     <button onClick={() => this.props.saveWidget(this.props.moduleIndex,
                         this.props.lessonIndex, this.props.topicIndex, this.props.topicId)}
                             className="btn btn-primary">
@@ -81,9 +84,11 @@ class WidgetListComponent extends React.Component {
                             onChange={this.props.togglePreview}/>
                         <span>Toggle Preview</span>
                     </label>
+
+
+                    <h1>Widget List ({this.widgetList.length})</h1>
                 </div>
                 <div>
-                    <h1>Widget List ({this.widgetList.length})</h1>
                     <ul className="list-group">
                         <li className="list-group-item">
                             <input ref={node => this.widgetTitle = node} placeholder="title" className="form-control"/>
