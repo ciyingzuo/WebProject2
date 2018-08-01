@@ -3,12 +3,8 @@ import ReactDOM from 'react-dom'
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import '../node_modules/font-awesome/css/font-awesome.min.css';
-import CourseList from './containers/CourseList'
 import CourseEditor from './containers/CourseEditor'
 import CourseManager from "./containers/CourseManager";
-import WidgetListContainer from './containers/widgets/WidgetListContainer'
-import {createStore} from 'redux'
-import {Provider} from 'react-redux'
 
 
 class App extends React.Component {

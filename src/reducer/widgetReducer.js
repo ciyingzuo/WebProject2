@@ -16,7 +16,7 @@ export const widgetReducer = (state = initialState, action) => {
                 preview: state.preview
             };
         case 'TOGGLE_PREVIEW':
-            console.log("TOGGLE_PREVIEW");
+            console.log("TOGGLE_PREVIEW:" + !state.preview);
             return {
                 course: state.course,
                 preview: !state.preview

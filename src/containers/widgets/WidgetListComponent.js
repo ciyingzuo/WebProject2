@@ -5,6 +5,7 @@ import {YouTubeWidget} from "./YouTubeWidget"
 import {ParagraphWidget} from "./ParagraphWidget";
 import {LinkWidget} from "./LinkWidget";
 import {ImageWidget} from "./ImageWidget";
+import Toggle from 'react-toggle'
 
 class WidgetListComponent extends React.Component {
     constructor(props) {
@@ -57,7 +58,7 @@ class WidgetListComponent extends React.Component {
     }
 
     render() {
-
+// let widgetList;
         if (this.props.topicIndex === 0) {
             return null
         }
@@ -67,15 +68,20 @@ class WidgetListComponent extends React.Component {
         this.order(this.widgetList);
         return (
             <div>
+                <div className="float-right" >
                 <button onClick={() => this.props.saveWidget(this.props.moduleIndex,
                     this.props.lessonIndex, this.props.topicIndex, this.props.topicId)}
-                        className="btn btn-primary float-right">
+                        className="btn btn-primary">
                     Save
                 </button>
-                <button onClick={() => this.props.togglePreview()}
-                        className="btn btn-primary float-right">
-                    Toggle Preview
-                </button>
+                <label>
+                    <Toggle
+                        defaultChecked={this.props.preview}
+                        onChange={this.props.togglePreview} />
+                    <span>Toggle Preview</span>
+                </label>
+                </div>
+                <div>
                 <h1>Widget List ({this.widgetList.length})</h1>
                 <ul className="list-group">
                     <li className="list-group-item">
@@ -165,6 +171,7 @@ class WidgetListComponent extends React.Component {
                         }
                     )}
                 </ul>
+                </div>
             </div>
         )
     }
