@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const YouTubeWidget = ({widget, updateWidget, preview, index}) => {
+export const YouTubeWidget = ({widget, updateWidget, preview, index, widgetList, moduleIndex, lessonIndex, topicIndex}) => {
   let src;
   return(
     <div>

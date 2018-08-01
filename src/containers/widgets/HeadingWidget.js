@@ -7,7 +7,7 @@ export const HeadingWidget =
         let size;
         return (
             <div>
-                <select ref={node => widgetType = node} className="form-control"
+                <select ref={node => widgetType = node} className="form-control" value="HEADING"
                         onChange={() => {
                             let w = {
                                 size: widget.size,

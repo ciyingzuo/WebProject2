@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const ListWidget = ({widget, updateWidget, preview, index}) => {
+export const ListWidget = ({widget, updateWidget, preview, index, widgetList, moduleIndex, lessonIndex, topicIndex}) => {
   let text;
   let ordered;
   return(

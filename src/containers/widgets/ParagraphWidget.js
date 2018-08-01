@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const ParagraphWidget = ({widget, updateWidget, preview, index}) => {
+export const ParagraphWidget = ({widget, updateWidget, preview, index, widgetList, moduleIndex, lessonIndex, topicIndex}) => {
     let text;
     return(
         <div>

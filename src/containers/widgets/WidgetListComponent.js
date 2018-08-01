@@ -11,7 +11,7 @@ class WidgetListComponent extends React.Component {
     constructor(props) {
         super(props);
         this.props.loadCourse(this.props.courseId);
-        this.widgetList= [];
+        this.widgetList = [];
         // this.props.loadWidget(this.props.topicId);
     }
 
@@ -69,113 +69,128 @@ class WidgetListComponent extends React.Component {
         this.order(this.widgetList);
         return (
             <div>
-                <div className="float-right" >
-                <button onClick={() => this.props.saveWidget(this.props.moduleIndex,
-                    this.props.lessonIndex, this.props.topicIndex, this.props.topicId)}
-                        className="btn btn-primary">
-                    Save
-                </button>
-                <label>
-                    <Toggle
-                        defaultChecked={this.props.preview}
-                        onChange={this.props.togglePreview} />
-                    <span>Toggle Preview</span>
-                </label>
+                <div className="float-right">
+                    <button onClick={() => this.props.saveWidget(this.props.moduleIndex,
+                        this.props.lessonIndex, this.props.topicIndex, this.props.topicId)}
+                            className="btn btn-primary">
+                        Save
+                    </button>
+                    <label>
+                        <Toggle
+                            defaultChecked={this.props.preview}
+                            onChange={this.props.togglePreview}/>
+                        <span>Toggle Preview</span>
+                    </label>
                 </div>
                 <div>
-                <h1>Widget List ({this.widgetList.length})</h1>
-                <ul className="list-group">
-                    <li className="list-group-item">
-                        <input ref={node => this.widgetTitle = node} placeholder="title" className="form-control"/>
-                        <input ref={node => this.widgetText = node} placeholder="text" className="form-control"/>
-                        <select ref={node => this.widgetType = node} className="form-control">
-                            <option value="HEADING">Heading Widget</option>
-                            <option value="PARAGRAPH">Paragraph Widget</option>
-                            <option value="IMAGE">Image Widget</option>
-                            <option value="LINK">Link Widget</option>
-                            <option value="LIST">List Widget</option>
-                            <option value="YOUTUBE">Youtube Widget</option>
-                        </select>
-                        <button onClick={() => {
-                            let widget = {
-                                widget_order: this.widgetList.length + 1,
-                                title: this.widgetTitle.value,
-                                type: this.widgetType.value,
-                                text: this.widgetText.value
-                            };
-                            this.widgetTitle.value = '';
-                            this.widgetTitle.value = '';
-                            this.widgetText = [
-                                widget,
-                                ...this.widgetList
-                            ];
-                            let newCourse = Object.assign({}, this.props.course);
-                            newCourse.module[this.props.moduleIndex].lesson[this.props.lessonIndex].topic[this.props.topicIndex].widget = this.widgetList;
-                            this.props.createWidget(newCourse)
-                        }} className="btn btn-success">Add Widget
-                        </button>
-                    </li>
-                    {this.widgetList.map((widget, index) => {
-                            return (<li className="list-group-item" key={index}>
-                                <h3>{widget.type} Widget
-                                <button className="float-right btn btn-danger"
-                                        onClick={() => {
-                                            let newWidgetList = this.widgetList.filter(
-                                                widgets => widgets.id !== widget.id
-                                            );
-                                            let newCourse = Object.assign({}, this.props.course);
-                                            newCourse.module[this.props.moduleIndex].lesson[this.props.lessonIndex].topic[this.props.topicIndex].widget = newWidgetList;
-                                            this.props.deleteWidget(newCourse)
-                                        }}>
-                                    Delete
-                                </button>
-                                <button className="float-right btn btn-danger"
-                                        onClick={() => {
-                                            this.orderUp(index);
-                                            let newCourse = Object.assign({}, this.props.course);
-                                            newCourse.module[this.props.moduleIndex].lesson[this.props.lessonIndex].topic[this.props.topicIndex].widget = this.widgetList;
-                                            this.props.createWidget(newCourse)
-                                        }}>
-                                    Up
-                                </button>
-                                <button className="float-right btn btn-danger"
-                                        onClick={() => {
-                                            this.orderDown(index);
-                                            let newCourse = Object.assign({}, this.props.course);
-                                            newCourse.module[this.props.moduleIndex].lesson[this.props.lessonIndex].topic[this.props.topicIndex].widget = this.widgetList;
-                                            this.props.createWidget(newCourse)
-                                        }}>
-                                    Down
-                                </button>
-                                </h3>
-                                <div>
-                                    {widget.type === 'PARAGRAPH' &&
-                                    <ParagraphWidget widget={widget} preview={this.props.preview}
-                                    index={index} updateWidget={this.props.updateWidget} widgetList={this.widgetList}/>}
-                                    {widget.type === 'LINK' &&
-                                    <LinkWidget widget={widget} preview={this.props.preview}
-                                                index={index} updateWidget={this.updateWidget}/>}
-                                    {widget.type === 'IMAGE' &&
-                                    <ImageWidget widget={widget} preview={this.props.preview}
-                                                 index={index} updateWidget={this.updateWidget}/>}
-                                    {widget.type === 'YOUTUBE' &&
-                                    <YouTubeWidget widget={widget} preview={this.props.preview}
-                                                   index={index} updateWidget={this.updateWidget}/>}
-                                    {widget.type === 'LIST' &&
-                                    <ListWidget widget={widget} preview={this.props.preview}
-                                                index={index} updateWidget={this.updateWidget}/>}
-                                    {widget.type === 'HEADING' &&
-                                    <HeadingWidget widget={widget} preview={this.props.preview}
-                                                   index={index} updateWidget={this.props.updateWidget}
-                                    moduleIndex={this.props.moduleIndex}
-                                                   lessonIndex={this.props.lessonIndex}
-                                                   topicIndex={this.props.topicIndex}
-                                    />}
-                                </div>
-                            </li>)
-                        }
-                    )}
-                </ul>
+                    <h1>Widget List ({this.widgetList.length})</h1>
+                    <ul className="list-group">
+                        <li className="list-group-item">
+                            <input ref={node => this.widgetTitle = node} placeholder="title" className="form-control"/>
+                            <input ref={node => this.widgetText = node} placeholder="text" className="form-control"/>
+                            <select ref={node => this.widgetType = node} className="form-control">
+                                <option value="HEADING">Heading Widget</option>
+                                <option value="PARAGRAPH">Paragraph Widget</option>
+                                <option value="IMAGE">Image Widget</option>
+                                <option value="LINK">Link Widget</option>
+                                <option value="LIST">List Widget</option>
+                                <option value="YOUTUBE">Youtube Widget</option>
+                            </select>
+                            <button onClick={() => {
+                                let widget = {
+                                    widget_order: this.widgetList.length + 1,
+                                    title: this.widgetTitle.value,
+                                    type: this.widgetType.value,
+                                    text: this.widgetText.value
+                                };
+                                this.widgetTitle.value = '';
+                                this.widgetText.value = '';
+                                this.widgetList = [
+                                    widget,
+                                    ...this.widgetList
+                                ];
+                                let newCourse = Object.assign({}, this.props.course);
+                                newCourse.module[this.props.moduleIndex].lesson[this.props.lessonIndex].topic[this.props.topicIndex].widget = this.widgetList;
+                                this.props.createWidget(newCourse)
+                            }} className="btn btn-success">Add Widget
+                            </button>
+                        </li>
+                        {this.widgetList.map((widget, index) => {
+                                return (<li className="list-group-item" key={index}>
+                                    <h3>{widget.type} Widget - {widget.title}
+                                        <button className="float-right btn btn-danger"
+                                                onClick={() => {
+                                                    let newWidgetList = this.widgetList.filter(
+                                                        widgets => widgets.id !== widget.id
+                                                    );
+                                                    let newCourse = Object.assign({}, this.props.course);
+                                                    newCourse.module[this.props.moduleIndex].lesson[this.props.lessonIndex].topic[this.props.topicIndex].widget = newWidgetList;
+                                                    this.props.deleteWidget(newCourse)
+                                                }}>
+                                            Delete
+                                        </button>
+                                        <button className="float-right btn btn-danger"
+                                                onClick={() => {
+                                                    this.orderUp(index);
+                                                    let newCourse = Object.assign({}, this.props.course);
+                                                    newCourse.module[this.props.moduleIndex].lesson[this.props.lessonIndex].topic[this.props.topicIndex].widget = this.widgetList;
+                                                    this.props.createWidget(newCourse)
+                                                }}>
+                                            Up
+                                        </button>
+                                        <button className="float-right btn btn-danger"
+                                                onClick={() => {
+                                                    this.orderDown(index);
+                                                    let newCourse = Object.assign({}, this.props.course);
+                                                    newCourse.module[this.props.moduleIndex].lesson[this.props.lessonIndex].topic[this.props.topicIndex].widget = this.widgetList;
+                                                    this.props.createWidget(newCourse)
+                                                }}>
+                                            Down
+                                        </button>
+                                    </h3>
+                                    <div>
+                                        {widget.type === 'PARAGRAPH' &&
+                                        <ParagraphWidget widget={widget} preview={this.props.preview}
+                                                         index={index} updateWidget={this.props.updateWidget}
+                                                         moduleIndex={this.props.moduleIndex}
+                                                         lessonIndex={this.props.lessonIndex}
+                                                         topicIndex={this.props.topicIndex}/>}
+                                        {widget.type === 'LINK' &&
+                                        <LinkWidget widget={widget} preview={this.props.preview}
+                                                    index={index} updateWidget={this.props.updateWidget}
+                                                    moduleIndex={this.props.moduleIndex}
+                                                    lessonIndex={this.props.lessonIndex}
+                                                    topicIndex={this.props.topicIndex}/>}
+                                        {widget.type === 'IMAGE' &&
+                                        <ImageWidget widget={widget} preview={this.props.preview}
+                                                     index={index} updateWidget={this.props.updateWidget}
+                                                     moduleIndex={this.props.moduleIndex}
+                                                     lessonIndex={this.props.lessonIndex}
+                                                     topicIndex={this.props.topicIndex}/>}
+                                        {widget.type === 'YOUTUBE' &&
+                                        <YouTubeWidget widget={widget} preview={this.props.preview}
+                                                       index={index} updateWidget={this.props.updateWidget}
+                                                       moduleIndex={this.props.moduleIndex}
+                                                       lessonIndex={this.props.lessonIndex}
+                                                       topicIndex={this.props.topicIndex}/>}
+                                        {widget.type === 'LIST' &&
+                                        <ListWidget widget={widget} preview={this.props.preview}
+                                                    index={index} updateWidget={this.props.updateWidget}
+                                                    moduleIndex={this.props.moduleIndex}
+                                                    lessonIndex={this.props.lessonIndex}
+                                                    topicIndex={this.props.topicIndex}/>}
+                                        {widget.type === 'HEADING' &&
+                                        <HeadingWidget widget={widget} preview={this.props.preview}
+                                                       index={index} updateWidget={this.props.updateWidget}
+                                                       moduleIndex={this.props.moduleIndex}
+                                                       lessonIndex={this.props.lessonIndex}
+                                                       topicIndex={this.props.topicIndex}
+                                        />}
+                                    </div>
+                                </li>)
+                            }
+                        )}
+                    </ul>
                 </div>
             </div>
         )
