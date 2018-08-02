@@ -15,15 +15,6 @@ class WidgetListComponent extends React.Component {
         // this.props.loadWidget(this.props.topicId);
     }
 
-    // deleteWidget(widgetList, widgetId) {
-    //     widgetList.filter(
-    //         widget => widget.id !== widgetId
-    //     );
-    //     let newCourse = Object.assign({}, this.props.course);
-    //     newCourse.module[this.props.moduleIndex].lesson[this.props.lessonIndex].topic[this.props.topicIndex].widget = widgetList;
-    //     this.props.deleteWidget(newCourse)
-    // }
-
     order(widgetList) {
         function compareUp(propertyName) {
             return function (object1, object2) {
