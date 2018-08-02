@@ -32,11 +32,17 @@ class WidgetListComponent extends React.Component {
 
 
     orderUp(index) {
+        if(index === 0){
+            return null
+        }
         this.widgetList[index].widget_order = this.widgetList[index].widget_order - 1;
         this.widgetList[index - 1].widget_order = this.widgetList[index - 1].widget_order + 1;
     }
 
     orderDown(index) {
+        if(index === this.widgetList - 1){
+            return null
+        }
         this.widgetList[index].widget_order = this.widgetList[index].widget_order + 1;
         this.widgetList[index + 1].widget_order = this.widgetList[index + 1].widget_order - 1;
     }

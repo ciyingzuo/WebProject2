@@ -4,15 +4,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a9c6105b-8015-44e3-b320-54183a253fb7" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/containers/WidgetListContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/WidgetListContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducer/widgetReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducer/widgetReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/CourseService.client.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/CourseService.client.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/LessonService.client.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/LessonService.client.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/ModuleService.client.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/ModuleService.client.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/TopicService.client.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/TopicService.client.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/WidgetService.client.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/WidgetService.client.js" afterDir="false" />
-    </list>
+    <list default="true" id="a9c6105b-8015-44e3-b320-54183a253fb7" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -324,12 +316,12 @@
       <workItem from="1532961992827" duration="6769000" />
       <workItem from="1533002514829" duration="46505000" />
       <workItem from="1533102355299" duration="137000" />
-      <workItem from="1533134836116" duration="28236000" />
+      <workItem from="1533134836116" duration="28589000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="237706000" />
+    <option name="totallyTimeSpent" value="238059000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
