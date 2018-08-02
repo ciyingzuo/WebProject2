@@ -1,7 +1,7 @@
 import {connect} from 'react-redux'
-import WidgetListComponent from './WidgetListComponent'
+import WidgetListComponent from '../components/WidgetListComponent'
 import React from "react";
-import CourseService from "../../services/CourseService.client";
+import CourseService from "../services/CourseService.client";
 
 // class WidgetContainer extends React.Component{
 //     constructor(props) {

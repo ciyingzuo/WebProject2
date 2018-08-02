@@ -8,7 +8,7 @@ import LessonTab from "../components/LessonTab";
 import TopicPills from "../components/TopicPills";
 import {createStore} from 'redux'
 import {Provider} from 'react-redux'
-import WidgetListContainer from "./widgets/WidgetListContainer";
+import WidgetListContainer from "./WidgetListContainer";
 import {widgetReducer} from "../reducer/widgetReducer";
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 
@@ -153,11 +153,11 @@ class CourseEditor extends React.Component {
                         {/*Module*/}
                         {this.state.course.module.map((module, moduleIndex) => {
                                 if (moduleIndex === 0) {
-                                    return <div/>
+                                    return <div key={moduleIndex}/>
                                 }
-                                return <div key={moduleIndex.id}>
+                                return <div key={module.id}>
                                     <ModuleRow module={module}
-                                               key={moduleIndex.id}
+                                               key={module.id}
                                                createLesson={this.createLesson}
                                                currentModuleEdit={this.state.currentModuleEdit}
                                                setEditingModule={this.setEditingModule}
@@ -166,7 +166,7 @@ class CourseEditor extends React.Component {
                                     {/*Lesson*/}
                                     {this.state.course.module[moduleIndex].lesson.map((lesson, lessonIndex) => {
                                             if (lessonIndex === 0) {
-                                                return <div/>
+                                                return <div key={lessonIndex}/>
                                             }
                                             return <LessonTab key={lesson.id}
                                                               lesson={lesson}

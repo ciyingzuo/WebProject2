@@ -1,10 +1,10 @@
 import React from 'react'
-import {HeadingWidget} from "./HeadingWidget"
-import {ListWidget} from "./ListWidget";
-import {YouTubeWidget} from "./YouTubeWidget"
-import {ParagraphWidget} from "./ParagraphWidget";
-import {LinkWidget} from "./LinkWidget";
-import {ImageWidget} from "./ImageWidget";
+import {HeadingWidget} from "./widgets/HeadingWidget"
+import {ListWidget} from "./widgets/ListWidget";
+import {YouTubeWidget} from "./widgets/YouTubeWidget"
+import {ParagraphWidget} from "./widgets/ParagraphWidget";
+import {LinkWidget} from "./widgets/LinkWidget";
+import {ImageWidget} from "./widgets/ImageWidget";
 import Toggle from 'react-toggle'
 
 class WidgetListComponent extends React.Component {

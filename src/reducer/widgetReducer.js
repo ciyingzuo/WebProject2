@@ -1,23 +1,13 @@
-let initialState = {
-    widget: [
-        // {title: 'YouTube Widget 1', type: 'YOUTUBE', src: 'agijCJ5Ye-w'}
-     ],
-    course: {}
-};
-
-export const widgetReducer = (state = initialState, action) => {
+export const widgetReducer = (state, action) => {
 
     switch (action.type) {
 
         case 'LOAD_COURSE':
             console.log("LOAD_COURSE");
-
-            let newState = {
+            return {
                 course: action.course,
                 preview: state.preview
             };
-
-            return newState;
         case 'TOGGLE_PREVIEW':
             console.log("TOGGLE_PREVIEW:" + !state.preview);
             return {
@@ -27,7 +17,7 @@ export const widgetReducer = (state = initialState, action) => {
         case 'SAVE_WIDGET':
             console.log("SAVE_WIDGET");
             fetch('http://localhost:8080/api/widget/'+action.topicId, {
-                method: 'post',
+                method: 'put',
                 headers: {
                     'content-type': 'application/json'
                 },
