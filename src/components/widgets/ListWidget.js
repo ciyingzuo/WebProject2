@@ -57,7 +57,7 @@ export const ListWidget = ({widget, updateWidget, preview, index, widgetList, mo
                 updateWidget(w, moduleIndex, lessonIndex, topicIndex, index)
             }} ref={node => text = node} className="form-control">
             </textarea>
-            <h4>Preview</h4>
+            {preview && (<div><h4>Preview</h4>
             {!widget.ordered &&
             <ul>
                 {widget.text.split('\n').map((item, index) => (
@@ -71,7 +71,7 @@ export const ListWidget = ({widget, updateWidget, preview, index, widgetList, mo
                     <li key={index}>{item}</li>
                 ))}
             </ol>
-            }
+            }</div>)}
 
         </div>
     );
