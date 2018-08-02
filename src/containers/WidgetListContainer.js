@@ -26,7 +26,8 @@ const stateToPropertyMapper = (state, ownProps) => {
 const dispatcherToPropertyMapper = dispatch => (
     {
         loadCourse: id => {
-            fetch('http://localhost:8080/api/course/' + id).then(response => response.json())
+            let courseService = CourseService.instance;
+            courseService.findCourseById(id)
                 .then(course => dispatch(
                     {
                         type: 'LOAD_COURSE',

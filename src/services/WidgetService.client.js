@@ -4,7 +4,7 @@ class WidgetServiceClient {
 
     HEROKU_URL= 'https://ciyingzuo-webdev-hw1.herokuapp.com/api/widget/';
     LOCAL_URL = 'http://localhost:8080/api/widget/';
-    WIDGET_API_URL = this.LOCAL_URL;
+    WIDGET_API_URL = this.HEROKU_URL;
 
     deleteWidget(widgetId) {
         return fetch(this.WIDGET_API_URL + widgetId, {
@@ -15,7 +15,7 @@ class WidgetServiceClient {
             });
     }
 
-    createLesson(widget, topicId) {
+    createWidget(widget, topicId) {
         return fetch(this.WIDGET_API_URL + topicId, {
             method: 'post',
             body: JSON.stringify(widget),
@@ -28,7 +28,7 @@ class WidgetServiceClient {
             });
     }
 
-    updateLesson(widget, topicId){
+    updateWidget(widget, topicId){
         return fetch(this.WIDGET_API_URL + topicId, {
             method: 'put',
             body: JSON.stringify(widget),

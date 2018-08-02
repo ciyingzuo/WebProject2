@@ -1,7 +1,9 @@
+import WidgetServiceClient from "../services/WidgetService.client";
+
 export const widgetReducer = (state, action) => {
+    this.widgetService = WidgetServiceClient.instance;
 
     switch (action.type) {
-
         case 'LOAD_COURSE':
             console.log("LOAD_COURSE");
             return {
@@ -16,20 +18,11 @@ export const widgetReducer = (state, action) => {
             };
         case 'SAVE_WIDGET':
             console.log("SAVE_WIDGET");
-            fetch('http://localhost:8080/api/widget/'+action.topicId, {
-                method: 'put',
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(state.course.module[action.moduleIndex].lesson[action.lessonIndex].topic[action.topicIndex].widget)
-            }).then(response => response.json()).then(widget => {
-                let course = state.course;
-                course.module[action.moduleIndex].lesson[action.lessonIndex].topic[action.topicIndex].widget = widget;
-                return {
-                    course: course,
-                    preview: state.preview
-                }
-            });
+            this.widgetService.updateWidget(state.course.module[action.moduleIndex].lesson[action.lessonIndex].topic[action.topicIndex].widget,
+                action.topicId);
+            return {course: state.course,
+            preview: state.preview};
+
         case 'DELETE_WIDGET':
             console.log("DELETE_WIDGET");
             return {

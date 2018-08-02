@@ -4,7 +4,7 @@ class ModuleServiceClient {
 
     HEROKU_URL= 'https://ciyingzuo-webdev-hw1.herokuapp.com/api/module/';
     LOCAL_URL = 'http://localhost:8080/api/module/';
-    MODULE_API_URL = this.LOCAL_URL;
+    MODULE_API_URL = this.HEROKU_URL;
 
     deleteModule(moduleId) {
         return fetch(this.MODULE_API_URL + moduleId, {
