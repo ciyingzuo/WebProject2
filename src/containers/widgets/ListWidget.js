@@ -3,7 +3,7 @@ import React from 'react'
 export const ListWidget = ({widget, updateWidget, preview, index, widgetList, moduleIndex, lessonIndex, topicIndex}) => {
     let text;
     let widgetType;
-    let ordered;
+    let ordered = false;
 
     function orderPrepare(text) {
         let newText = [];
@@ -15,7 +15,6 @@ export const ListWidget = ({widget, updateWidget, preview, index, widgetList, mo
         });
         return newText
     }
-
     function order(propertyName) {
             return function(object1, object2) {
                 let value1 = object1[propertyName];
@@ -33,7 +32,6 @@ export const ListWidget = ({widget, updateWidget, preview, index, widgetList, mo
                             id: widget.id,
                             type: widgetType.value,
                             text: widget.text,
-                            ordered: widget.ordered,
                             widget_order: widget.widget_order
                         };
                         updateWidget(w, moduleIndex, lessonIndex, topicIndex, index)
@@ -48,16 +46,8 @@ export const ListWidget = ({widget, updateWidget, preview, index, widgetList, mo
 
             <label><input ref={node => ordered = node}
                           onClick={() => {
-                              let w = {
-                                  title: widget.title,
-                                  id: widget.id,
-                                  type: widget.type,
-                                  text: widget.text,
-                                  ordered: ordered.checked,
-                                  widget_order: widget.widget_order
-                              };
-                              updateWidget(w, moduleIndex, lessonIndex, topicIndex, index)
-                          }}
+                              this.ordered = !this.ordered;
+                          console.log(this.ordered)}}
                           checked={widget.ordered}
                           type="checkbox"/> Ordered</label>
             <textarea placeholder={widget.text.split('\n').map((item, index) => (
@@ -69,23 +59,22 @@ export const ListWidget = ({widget, updateWidget, preview, index, widgetList, mo
                     id: widget.id,
                     type: widget.type,
                     text: text.value,
-                    ordered: widget.ordered,
                     widget_order: widget.widget_order
                 };
                 updateWidget(w, moduleIndex, lessonIndex, topicIndex, index)
             }} ref={node => text = node} className="form-control">
             </textarea>
             <h4>Preview</h4>
-            {!widget.ordered &&
+            {!this.ordered &&
             <ul>
                 {widget.text.split('\n').map((item, index) => (
                     <li key={index}>{item}</li>
                 ))}
             </ul>
             }
-            {widget.ordered &&
+            {this.ordered &&
             <ol>
-                {orderPrepare(widget.text).sort(order).map((item, index) => (
+                {orderPrepare(widget.text).sort(order("text")).map((item, index) => (
                     <li key={index}>{item}</li>
                 ))}
             </ol>

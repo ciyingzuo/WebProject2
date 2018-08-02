@@ -11,10 +11,13 @@ export const widgetReducer = (state = initialState, action) => {
 
         case 'LOAD_COURSE':
             console.log("LOAD_COURSE");
-            return {
+
+            let newState = {
                 course: action.course,
                 preview: state.preview
             };
+
+            return newState;
         case 'TOGGLE_PREVIEW':
             console.log("TOGGLE_PREVIEW:" + !state.preview);
             return {

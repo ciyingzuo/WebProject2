@@ -51,17 +51,15 @@ class WidgetListComponent extends React.Component {
     }
 
     render() {
-        console.log(this.props.topicIndex);
         if (this.props.topicIndex === 0 || this.props.moduleIndex === 0|| this.props.lessonIndex === 0) {
             return null
         }
-        if(this.props.course.module[this.props.moduleIndex] == null ||
-            this.props.course.module[this.props.moduleIndex].lesson[this.props.lessonIndex] == null ||
-            this.props.course.module[this.props.moduleIndex].lesson[this.props.lessonIndex].topic[this.props.topicIndex] == null){
-            console.log("reload course");
-            this.props.loadCourse(this.props.courseId);
-        }
-        console.log(this.props.course);
+        // if(this.props.course.module[this.props.moduleIndex] == null ||
+        //     this.props.course.module[this.props.moduleIndex].lesson[this.props.lessonIndex] == null ||
+        //     this.props.course.module[this.props.moduleIndex].lesson[this.props.lessonIndex].topic[this.props.topicIndex] == null){
+        //     console.log("reload course");
+        //     this.props.loadCourse(this.props.courseId);
+        // }
         if (this.props.course !== null && this.props.course !== undefined) {
             this.widgetList = this.props.course.module[this.props.moduleIndex].lesson[this.props.lessonIndex].topic[this.props.topicIndex].widget;
         }
@@ -102,7 +100,7 @@ class WidgetListComponent extends React.Component {
                                     widget_order: this.widgetList.length + 1,
                                     title: this.widgetTitle.value,
                                     type: this.widgetType.value,
-                                    text: this.widgetText.value
+                                    text: this.widgetText.value,
                                 };
                                 this.widgetTitle.value = '';
                                 this.widgetText.value = '';
