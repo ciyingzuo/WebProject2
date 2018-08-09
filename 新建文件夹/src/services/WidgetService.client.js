@@ -1,13 +1,13 @@
 let _singleton = Symbol();
 
-class LessonServiceClient {
+class WidgetServiceClient {
 
-    HEROKU_URL= 'https://ciyingzuo-webdev-hw1.herokuapp.com/api/lesson/';
-    LOCAL_URL = 'http://localhost:8080/api/lesson/';
-    Lesson_API_URL = this.LOCAL_URL;
+    HEROKU_URL= 'https://ciyingzuo-webdev-hw1.herokuapp.com/api/widget/';
+    LOCAL_URL = 'http://localhost:8080/api/widget/';
+    WIDGET_API_URL = this.HEROKU_URL;
 
-    deleteLesson(lessonId) {
-        return fetch(this.Lesson_API_URL + lessonId, {
+    deleteWidget(widgetId) {
+        return fetch(this.WIDGET_API_URL + widgetId, {
             method: 'delete'
         })
             .then(function (response) {
@@ -15,10 +15,10 @@ class LessonServiceClient {
             });
     }
 
-    createLesson(lesson, moduleId) {
-        return fetch(this.Lesson_API_URL + moduleId, {
+    createWidget(widget, topicId) {
+        return fetch(this.WIDGET_API_URL + topicId, {
             method: 'post',
-            body: JSON.stringify(lesson),
+            body: JSON.stringify(widget),
             headers: {
                 'content-type': 'application/json'
             }
@@ -28,18 +28,20 @@ class LessonServiceClient {
             });
     }
 
-    updateLesson(lesson){
-        return fetch(this.Lesson_API_URL + lesson.id, {
+    updateWidget(widget, topicId){
+        return fetch(this.WIDGET_API_URL + topicId, {
             method: 'put',
-            body: JSON.stringify(lesson),
+            body: JSON.stringify(widget),
             headers: {
                 'Content-Type': 'application/json'
             }
+        }).then(response => response.json()).then(widget => {
+            return widget;
         });
     }
 
-    findAllLessonForModule(moduleId) {
-        return fetch(this.Lesson_API_URL + moduleId)
+    findAllWidgetForTopic(topicId) {
+        return fetch(this.WIDGET_API_URL + topicId)
             .then(function (response) {
                 return response.json();
             });
@@ -54,10 +56,10 @@ class LessonServiceClient {
 
     static get instance() {
         if (!this[_singleton])
-            this[_singleton] = new LessonServiceClient(_singleton);
+            this[_singleton] = new WidgetServiceClient(_singleton);
         return this[_singleton]
     }
 
 }
 
-export default LessonServiceClient;
+export default WidgetServiceClient;

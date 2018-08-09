@@ -7,7 +7,6 @@ class CourseServiceClient {
     COURSE_API_URL = this.HEROKU_URL;
 
     deleteCourse(courseId) {
-
         return fetch(this.COURSE_API_URL + 'delete/' + courseId, {
             method: 'delete'
         })
@@ -54,6 +53,14 @@ class CourseServiceClient {
             });
     }
 
+    toggleVisibility(courseId) {
+            return fetch(this.COURSE_API_URL + courseId + "/visibility", {
+                method: 'put',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+    }
 
     constructor(singletonToken) {
         if (_singleton !== singletonToken)

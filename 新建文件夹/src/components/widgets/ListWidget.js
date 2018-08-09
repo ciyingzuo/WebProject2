@@ -5,25 +5,6 @@ export const ListWidget = ({widget, updateWidget, preview, index, widgetList, mo
     let widgetType;
     let ordered;
 
-    function orderPrepare(text) {
-        let newText = [];
-        text.split('\n').map((item, index) => {
-            newText = [
-                {content: item},
-                ...newText
-            ]
-        });
-        return newText
-    }
-
-    function order(propertyName) {
-            return function(object1, object2) {
-                let value1 = object1[propertyName];
-                let value2 = object2[propertyName];
-                return value1.localeCompare(value2);
-            };
-    }
-
     return (
         <div>
             <select ref={node => widgetType = node} className="form-control" value="LIST"
@@ -33,8 +14,8 @@ export const ListWidget = ({widget, updateWidget, preview, index, widgetList, mo
                             id: widget.id,
                             type: widgetType.value,
                             text: widget.text,
-                            ordered: widget.ordered,
-                            widget_order: widget.widget_order
+                            widget_order: widget.widget_order,
+                            ordered: widget.ordered
                         };
                         updateWidget(w, moduleIndex, lessonIndex, topicIndex, index)
                     }}>
@@ -46,15 +27,16 @@ export const ListWidget = ({widget, updateWidget, preview, index, widgetList, mo
                 <option value="YOUTUBE">YOUTUBE</option>
             </select>
 
-            <label><input ref={node => ordered = node}
+            <label><input
+                ref={node => ordered = node}
                           onClick={() => {
                               let w = {
                                   title: widget.title,
                                   id: widget.id,
-                                  type: widget.type,
+                                  type: widgetType.value,
                                   text: widget.text,
-                                  ordered: ordered.checked,
-                                  widget_order: widget.widget_order
+                                  widget_order: widget.widget_order,
+                                  ordered: ordered.checked
                               };
                               updateWidget(w, moduleIndex, lessonIndex, topicIndex, index)
                           }}
@@ -69,13 +51,13 @@ export const ListWidget = ({widget, updateWidget, preview, index, widgetList, mo
                     id: widget.id,
                     type: widget.type,
                     text: text.value,
-                    ordered: widget.ordered,
-                    widget_order: widget.widget_order
+                    widget_order: widget.widget_order,
+                    ordered: widget.ordered
                 };
                 updateWidget(w, moduleIndex, lessonIndex, topicIndex, index)
             }} ref={node => text = node} className="form-control">
             </textarea>
-            <h4>Preview</h4>
+            {preview && (<div><h4>Preview</h4>
             {!widget.ordered &&
             <ul>
                 {widget.text.split('\n').map((item, index) => (
@@ -85,11 +67,11 @@ export const ListWidget = ({widget, updateWidget, preview, index, widgetList, mo
             }
             {widget.ordered &&
             <ol>
-                {orderPrepare(widget.text).sort(order).map((item, index) => (
+                {widget.text.split('\n').sort().map((item, index) => (
                     <li key={index}>{item}</li>
                 ))}
             </ol>
-            }
+            }</div>)}
 
         </div>
     );

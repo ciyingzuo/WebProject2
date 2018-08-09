@@ -59,7 +59,7 @@ export const HeadingWidget =
                     <option value="3">Size 3</option>
                     <option value="4">Size 4</option>
                 </select>
-                {preview &&(<div><h4>Preview{widget.size}</h4>
+                {preview && (<div><h4>Preview</h4>
                 {widget.size == '1' && <h1>{widget.text}</h1>}
                 {widget.size == '2' && <h2>{widget.text}</h2>}
                 {widget.size == '3' && <h3>{widget.text}</h3>}

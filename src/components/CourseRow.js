@@ -18,6 +18,7 @@ class CourseRow extends React.Component {
         if (this.state.editing === 0) {
             return <div className="container-fluid">
                 <Link to={'/courseEditor/' + this.props.course.id}>{this.state.course.title}</Link>
+                <button onClick={() => {this.courseService.toggleVisibility(this.props.course.id)}}>Toggle Visibility</button>
                 <Route path={'/courseEditor/:courseId'} component={CourseEditor}/>
             </div>
         } else {

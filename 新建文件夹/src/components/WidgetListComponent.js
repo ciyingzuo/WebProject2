@@ -1,10 +1,10 @@
 import React from 'react'
-import {HeadingWidget} from "./HeadingWidget"
-import {ListWidget} from "./ListWidget";
-import {YouTubeWidget} from "./YouTubeWidget"
-import {ParagraphWidget} from "./ParagraphWidget";
-import {LinkWidget} from "./LinkWidget";
-import {ImageWidget} from "./ImageWidget";
+import {HeadingWidget} from "./widgets/HeadingWidget"
+import {ListWidget} from "./widgets/ListWidget";
+import {YouTubeWidget} from "./widgets/YouTubeWidget"
+import {ParagraphWidget} from "./widgets/ParagraphWidget";
+import {LinkWidget} from "./widgets/LinkWidget";
+import {ImageWidget} from "./widgets/ImageWidget";
 import Toggle from 'react-toggle'
 
 class WidgetListComponent extends React.Component {
@@ -14,15 +14,6 @@ class WidgetListComponent extends React.Component {
         this.widgetList = [];
         // this.props.loadWidget(this.props.topicId);
     }
-
-    // deleteWidget(widgetList, widgetId) {
-    //     widgetList.filter(
-    //         widget => widget.id !== widgetId
-    //     );
-    //     let newCourse = Object.assign({}, this.props.course);
-    //     newCourse.module[this.props.moduleIndex].lesson[this.props.lessonIndex].topic[this.props.topicIndex].widget = widgetList;
-    //     this.props.deleteWidget(newCourse)
-    // }
 
     order(widgetList) {
         function compareUp(propertyName) {
@@ -39,33 +30,33 @@ class WidgetListComponent extends React.Component {
         })
     }
 
-    // updateWidget(widget, index, widgetList){
-    //
-    //     console.log(widgetList);
-    //     this.widgetList[index] = widget;
-    //     let newCourse = Object.assign({}, this.props.course);
-    //     newCourse.module[this.props.moduleIndex].lesson[this.props.lessonIndex].topic[this.props.topicIndex].widget = this.widgetList;
-    //     this.props.updateWidget(newCourse)
-    // }
 
     orderUp(index) {
+        if(index === 0){
+            return null
+        }
         this.widgetList[index].widget_order = this.widgetList[index].widget_order - 1;
         this.widgetList[index - 1].widget_order = this.widgetList[index - 1].widget_order + 1;
     }
 
     orderDown(index) {
+        if(index === this.widgetList - 1){
+            return null
+        }
         this.widgetList[index].widget_order = this.widgetList[index].widget_order + 1;
         this.widgetList[index + 1].widget_order = this.widgetList[index + 1].widget_order - 1;
     }
 
     render() {
-// let widgetList;
-        if(!this.props.course.module[this.props.moduleIndex].lesson[this.props.lessonIndex].topic[this.props.topicIndex].widget){
-            this.props.loadCourse(this.props.courseId);
-        }
-        if (this.props.topicIndex === 0) {
+        if (this.props.topicIndex === 0 || this.props.moduleIndex === 0|| this.props.lessonIndex === 0) {
             return null
         }
+        // if(this.props.course.module[this.props.moduleIndex] == null ||
+        //     this.props.course.module[this.props.moduleIndex].lesson[this.props.lessonIndex] == null ||
+        //     this.props.course.module[this.props.moduleIndex].lesson[this.props.lessonIndex].topic[this.props.topicIndex] == null){
+        //     console.log("reload course");
+        //     this.props.loadCourse(this.props.courseId);
+        // }
         if (this.props.course !== null && this.props.course !== undefined) {
             this.widgetList = this.props.course.module[this.props.moduleIndex].lesson[this.props.lessonIndex].topic[this.props.topicIndex].widget;
         }
@@ -106,7 +97,7 @@ class WidgetListComponent extends React.Component {
                                     widget_order: this.widgetList.length + 1,
                                     title: this.widgetTitle.value,
                                     type: this.widgetType.value,
-                                    text: this.widgetText.value
+                                    text: this.widgetText.value,
                                 };
                                 this.widgetTitle.value = '';
                                 this.widgetText.value = '';

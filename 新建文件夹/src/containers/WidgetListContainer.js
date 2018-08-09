@@ -1,7 +1,7 @@
 import {connect} from 'react-redux'
-import WidgetListComponent from './WidgetListComponent'
+import WidgetListComponent from '../components/WidgetListComponent'
 import React from "react";
-import CourseService from "../../services/CourseService.client";
+import CourseService from "../services/CourseService.client";
 
 // class WidgetContainer extends React.Component{
 //     constructor(props) {
@@ -9,8 +9,8 @@ import CourseService from "../../services/CourseService.client";
 //     }
 // }
 
-const stateToPropertyMapper = (state, ownProps) => (
-    {
+const stateToPropertyMapper = (state, ownProps) => {
+    return {
         courseId: ownProps.courseId,
         moduleIndex: ownProps.moduleIndex,
         lessonIndex: ownProps.lessonIndex,
@@ -21,12 +21,13 @@ const stateToPropertyMapper = (state, ownProps) => (
         widget: []
         // widget: ownProps.course.module[ownProps.moduleIndex].lesson[ownProps.lessonIndex].topic[ownProps.topicIndex].widget
     }
-);
+};
 
 const dispatcherToPropertyMapper = dispatch => (
     {
         loadCourse: id => {
-            fetch('http://localhost:8080/api/course/'+id).then(response => response.json())
+            let courseService = CourseService.instance;
+            courseService.findCourseById(id)
                 .then(course => dispatch(
                     {
                         type: 'LOAD_COURSE',

@@ -6,7 +6,60 @@
   <component name="ChangeListManager">
     <list default="true" id="a9c6105b-8015-44e3-b320-54183a253fb7" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/widgets/ListWidget.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/widgets/ListWidget.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/crt/components/CourseRow.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/crt/components/LessonTab.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/crt/components/ModuleRow.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/crt/components/TopicPills.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/crt/containers/CourseEditor.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/crt/containers/CourseList.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/crt/containers/CourseManager.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/crt/containers/CourseRow.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/crt/containers/es6/es6.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/crt/containers/es6/spread/SpreadFunctionParameters.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/crt/containers/es6/spread/SpreadOperators.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/crt/containers/es6/spread/SpreadString.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/crt/containers/es6/spread/SpreadStringArrays.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/crt/containers/widgets/HeadingWidget.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/crt/containers/widgets/ImageWidget.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/crt/containers/widgets/LinkWidget.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/crt/containers/widgets/ListWidget.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/crt/containers/widgets/ParagraphWidget.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/crt/containers/widgets/WidgetListComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/crt/containers/widgets/WidgetListContainer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/crt/containers/widgets/YouTubeWidget.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/crt/reducer/widgetReducer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/crt/services/CourseService.client.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/crt/services/LessonService.client.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/crt/services/ModuleService.client.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/crt/services/TopicService.client.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/components/CourseRow.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/components/LessonTab.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/components/ModuleRow.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/components/TopicPills.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/containers/CourseEditor.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/containers/CourseList.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/containers/CourseManager.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/containers/es6/es6.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/containers/es6/spread/SpreadFunctionParameters.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/containers/es6/spread/SpreadOperators.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/containers/es6/spread/SpreadString.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/containers/es6/spread/SpreadStringArrays.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/containers/widgets/HeadingWidget.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/containers/widgets/ImageWidget.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/containers/widgets/LinkWidget.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/containers/widgets/ListWidget.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/containers/widgets/ParagraphWidget.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/containers/widgets/WidgetListComponent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/containers/widgets/WidgetListContainer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/containers/widgets/YouTubeWidget.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/reducer/widgetReducer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/services/CourseService.client.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/services/LessonService.client.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/services/ModuleService.client.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/services/TopicService.client.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CourseRow.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CourseRow.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/CourseService.client.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/CourseService.client.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,84 +73,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="WidgetListContainer.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/containers/WidgetListContainer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="520">
-              <caret line="29" column="44" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="44" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="widgetReducer.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/reducer/widgetReducer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="4" selection-start-line="4" selection-end-line="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WidgetService.client.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/services/WidgetService.client.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TopicService.client.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/services/TopicService.client.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WidgetListComponent.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/WidgetListComponent.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="58" column="12" lean-forward="true" selection-start-line="58" selection-start-column="12" selection-end-line="58" selection-end-column="12" />
-              <folding>
-                <element signature="e#0#25#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ListWidget.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/widgets/ListWidget.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="73" column="21" lean-forward="true" selection-start-line="73" selection-start-column="21" selection-end-line="73" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ParagraphWidget.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/widgets/ParagraphWidget.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="520">
-              <caret line="36" column="24" lean-forward="true" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CourseService.client.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/services/CourseService.client.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="LessonService.client.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/services/LessonService.client.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -116,11 +91,61 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="TopicService.client.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/services/TopicService.client.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WidgetService.client.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/services/WidgetService.client.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CourseRow.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/CourseRow.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="20" column="99" selection-start-line="20" selection-start-column="99" selection-end-line="20" selection-end-column="99" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LessonTab.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/LessonTab.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="278">
+              <caret line="19" column="38" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="38" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CourseService.client.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/services/CourseService.client.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>onChange</find>
       <find>setSta</find>
       <find>consol</find>
       <find>lessonTab</find>
@@ -150,6 +175,7 @@
       <find>check</find>
       <find>Lesson_API_URL</find>
       <find>console</find>
+      <find>onClo</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -177,7 +203,6 @@
         <option value="$PROJECT_DIR$/src/services/ModuleService.js" />
         <option value="$PROJECT_DIR$/src/services/LessonService.js" />
         <option value="$PROJECT_DIR$/src/containers/widgets/YouTubeWIdget.js" />
-        <option value="$PROJECT_DIR$/src/components/CourseRow.js" />
         <option value="$PROJECT_DIR$/src/containers/CourseManager.js" />
         <option value="$PROJECT_DIR$/../CS4550_FinalProject/DESIGN.html" />
         <option value="$PROJECT_DIR$/src/containers/CourseList.js" />
@@ -194,13 +219,14 @@
         <option value="$PROJECT_DIR$/src/containers/CourseEditor.js" />
         <option value="$PROJECT_DIR$/src/reducer/widgetReducer.js" />
         <option value="$PROJECT_DIR$/src/containers/WidgetListContainer.js" />
+        <option value="$PROJECT_DIR$/src/components/WidgetListComponent.js" />
+        <option value="$PROJECT_DIR$/src/components/widgets/ListWidget.js" />
+        <option value="$PROJECT_DIR$/src/components/CourseRow.js" />
         <option value="$PROJECT_DIR$/src/services/CourseService.client.js" />
         <option value="$PROJECT_DIR$/src/services/LessonService.client.js" />
         <option value="$PROJECT_DIR$/src/services/ModuleService.client.js" />
         <option value="$PROJECT_DIR$/src/services/TopicService.client.js" />
         <option value="$PROJECT_DIR$/src/services/WidgetService.client.js" />
-        <option value="$PROJECT_DIR$/src/components/WidgetListComponent.js" />
-        <option value="$PROJECT_DIR$/src/components/widgets/ListWidget.js" />
       </list>
     </option>
   </component>
@@ -221,8 +247,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-6" />
-    <option name="width" value="781" />
+    <option name="x" value="-9" />
+    <option name="width" value="784" />
     <option name="height" value="830" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -231,6 +257,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -278,7 +305,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -329,28 +355,37 @@
       <workItem from="1533002514829" duration="46505000" />
       <workItem from="1533102355299" duration="137000" />
       <workItem from="1533134836116" duration="28714000" />
-      <workItem from="1533241406637" duration="139000" />
+      <workItem from="1533241406637" duration="313000" />
+      <workItem from="1533568009961" duration="657000" />
+      <workItem from="1533568983037" duration="14000" />
+      <workItem from="1533571775607" duration="58000" />
+      <workItem from="1533703615342" duration="307000" />
+      <workItem from="1533705623253" duration="1751000" />
+      <workItem from="1533740817690" duration="15000" />
+      <workItem from="1533751548298" duration="4000" />
+      <workItem from="1533819473373" duration="572000" />
+      <workItem from="1533839716309" duration="1098000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="238323000" />
+    <option name="totallyTimeSpent" value="242973000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13072917" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12961012" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5005208" side_tool="true" visible="true" weight="0.15957446" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5021075" side_tool="true" weight="0.3293348" />
       <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49789253" visible="true" weight="0.3293348" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -392,221 +427,79 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/services/LessonService.client.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="59" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/ModuleService.client.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/services/TopicService.client.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="34" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/services/CourseService.client.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="15" selection-start-line="15" selection-end-line="20" selection-end-column="5" />
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ModuleRow.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="26" column="16" lean-forward="true" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/services/WidgetService.client.js">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/LessonTab.js">
+    <entry file="file://$PROJECT_DIR$/src/services/LessonService.client.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+        <state relative-caret-position="80">
+          <caret line="4" column="59" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="59" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/services/LessonService.client.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="16" column="57" selection-start-line="16" selection-start-column="57" selection-end-line="16" selection-end-column="57" />
+        <state relative-caret-position="80">
+          <caret line="4" column="59" lean-forward="true" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="59" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/WidgetListComponent.js">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/CourseList.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1260">
-          <caret line="67" selection-start-line="67" selection-end-line="72" selection-end-column="28" />
+        <state relative-caret-position="-1200">
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/ModuleService.client.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="29" column="17" selection-start-line="29" selection-start-column="4" selection-end-line="29" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/CourseEditor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="20" column="29" lean-forward="true" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/es6/spread/SpreadOperators.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="640">
-          <caret line="32" column="1" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/es6/spread/SpreadString.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="740">
-          <caret line="37" column="27" selection-start-line="37" selection-start-column="27" selection-end-line="37" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/es6/spread/SpreadFunctionParameters.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="851">
-          <caret line="44" column="40" selection-start-line="44" selection-start-column="40" selection-end-line="44" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/es6/spread/SpreadStringArrays.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitattributes">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/es6/es6.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="27" column="32" lean-forward="true" selection-start-line="23" selection-start-column="28" selection-end-line="27" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ModuleList.js" />
-    <entry file="file://$PROJECT_DIR$/../CS4550_FinalProject/RESEARCH.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../CS4550_FinalProject/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="16" column="19" lean-forward="true" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/back/crt/components/LessonTab.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" column="50" lean-forward="true" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/back/src/services/CourseService.js" />
-    <entry file="file://$PROJECT_DIR$/back/crt/services/CourseService.js" />
     <entry file="file://$PROJECT_DIR$/src/components/LessonTab.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="14" column="15" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ModuleRow.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="34" column="31" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Temp1_webdev-summer2-2018-client-react-jannunzi-master.zip/webdev-summer2-2018-client-react-jannunzi-master/src/services/CourseService.js" />
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Temp1_webdev-summer2-2018-client-react-jannunzi-master.zip/webdev-summer2-2018-client-react-jannunzi-master/src/index.js" />
-    <entry file="file://$PROJECT_DIR$/src/containers/widgets/WidgetType1.js" />
-    <entry file="file://$PROJECT_DIR$/src/containers/widgets/WidgetType3.js" />
-    <entry file="file://$PROJECT_DIR$/src/containers/widgets/WidgetType2.js" />
-    <entry file="file://$PROJECT_DIR$/../CS4550_FinalProject/DESIGN.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="17" column="56" selection-start-line="17" selection-start-column="56" selection-end-line="17" selection-end-column="56" />
+        <state relative-caret-position="278">
+          <caret line="19" column="38" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/CourseRow.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="26" column="70" selection-start-line="26" selection-start-column="70" selection-end-line="26" selection-end-column="70" />
+        <state relative-caret-position="340">
+          <caret line="20" column="99" selection-start-line="20" selection-start-column="99" selection-end-line="20" selection-end-column="99" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/CourseList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="25" column="5" lean-forward="true" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
+    <entry file="file://$PROJECT_DIR$/src/services/CourseService.client.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
-          <caret line="6" column="55" selection-start-line="6" selection-start-column="55" selection-end-line="6" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/Temp1_webdev-summer2-2018-client-react-jannunzi-master.zip/webdev-summer2-2018-client-react-jannunzi-master/src/containers/widgets/YouTubeWIdget.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/TopicService.js" />
-    <entry file="file://$PROJECT_DIR$/src/services/CourseService.js" />
-    <entry file="file://$PROJECT_DIR$/src/components/TopicPills.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/widgets/HeadingWidget.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="61" column="45" selection-start-line="61" selection-start-column="45" selection-end-line="61" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/widgets/ImageWidget.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-30">
-          <caret line="16" column="61" selection-start-line="16" selection-start-column="61" selection-end-line="16" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/widgets/LinkWidget.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="37" selection-start-line="9" selection-start-column="37" selection-end-line="19" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/widgets/YouTubeWidget.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="32" column="54" selection-start-line="32" selection-start-column="54" selection-end-line="32" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/CourseRow.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/CourseManager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="25" selection-start-column="25" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/CourseEditor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/reducer/widgetReducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
+          <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -618,13 +511,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/services/ModuleService.client.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/services/CourseService.client.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
@@ -633,8 +519,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/services/TopicService.client.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+        <state relative-caret-position="120">
+          <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -642,40 +528,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/WidgetListContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="29" column="44" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/WidgetListComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="58" column="12" lean-forward="true" selection-start-line="58" selection-start-column="12" selection-end-line="58" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/widgets/ParagraphWidget.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="36" column="24" lean-forward="true" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/widgets/ListWidget.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="73" column="21" lean-forward="true" selection-start-line="73" selection-start-column="21" selection-end-line="73" selection-end-column="21" />
         </state>
       </provider>
     </entry>
